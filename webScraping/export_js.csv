@@ -1,0 +1,813 @@
+"document.write("Hello World!");","console.log('Hello World');"
+"for (let i = 0; i < 10; i++) {
+  console.log("Hello");
+}","let count = 0;
+while (count < 10) {
+  count++; 
+  console.log('Hello');
+};","[...Array(10)].forEach(() => console.log('Hello'))","console.log( 'Hello\n'.repeat(10) )"
+"var bli = function() { 
+	console.log('Hello World!!!');
+}","function bli() { 
+	console.log('Hello World!!!');
+}","let dog = 'Poodle';
+const dogAlert = () => alert(dog);"
+"function square(x) { 
+	return x * x;
+}","const square = (x) => x * x;","const square = n => n**2","const square = (number) => Math.pow(number, 2);"
+"var p = { x: 1.122, y: 7.45 };","const point = { x: 1, y: 2 };"
+"items.forEach((x) => {
+    doSomething(x);
+});","for (x of items) {
+	doSomething(x);
+}","items.forEach(doSomething)","for (var i = 0; i<items.length; i++) {
+  var x = items[i];
+  doSomething(x);
+}","items.map(doSomething)"
+"items.forEach((val, idx) => {
+  console.log("index=" + idx + ", value=" + val);
+});","for (var i in items) {
+   console.log("index=" + i + ", value=" + items[i]);
+}"
+"const x = {one: 1, two:2}","const x = new Map();
+x.set("one", 1);
+x.set("two", 2);","const x = new Map([["one",1],["two",2]]);"
+"class Node {
+  constructor (data) {
+    this.data = data
+    this.left = null
+    this.right = null
+  }
+}"
+"for (var i = x.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = x[j];
+    x[j] = x[i];
+    x[i] = temp;
+}"
+"x[Math.floor(Math.random() * x.length)]","x[~~(Math.random() * x.length)];"
+"return list.indexOf(x) !== -1;","return list.includes(x);"
+"Object.entries(mymap).forEach(([key, value]) => {
+	console.log('key:', key, 'value:', value);
+});
+","for (const key in mymap) {
+    console.log('key:', key, 'value:', mymap[key]);
+}"
+"a + (b-a) * Math.random();","a + Math.random() * (b - a)"
+"function pick(a, b) {
+    return a + Math.floor(Math.random() * (b - a + 1));
+}"
+"function dfs(bt) {
+	if (bt === undefined) return;
+	dfs(bt.left);
+	f(bt);
+	dfs(bt.right);
+}"
+"class Node {
+  constructor (value, children = []) {
+    this.value = value
+    this.children = children
+  }
+}"
+"function DFS(f, root) {
+	f(root)
+	if (root.children) {
+		root.children.forEach(child => DFS(f, child))
+	}
+}"
+"x = x.reverse();"
+"function search(m, x) {
+    for (var i = 0; i < m.length; i++) {
+        for (var j = 0; j < m[i].length; j++) {
+            if (m[i][j] == x) {
+                return [i, j];
+            }
+        }
+    }
+    return false;
+}"
+"var tmp = a;
+a = b;
+b = tmp;","[a, b] = [b, a];"
+"let i = parseInt(s, 10)","const i = Number(s);","const i = +s"
+"num.toFixed(2)"
+"s = "ネコ";"
+"{
+  // in file worker.js
+  onmessage = ({data}) => {
+    console.log (`Hello, ${data}`)
+  }
+}
+{
+  // in file main.js
+  const worker = new Worker ('worker.js')
+  worker.postMessage ('Alan')
+}","import { isMainThread, Worker, parentPort } from 'worker_threads';","if (isMainThread) {
+  const worker = new Worker(new URL(import.meta.url));
+  worker.postMessage('Alan');
+} else {
+  parentPort.once('message', (message) => {
+    console.log(`Hello, ${message}`);
+  });
+}"
+"var x = [];
+for (var i = 0; i < m; i++) {
+  x[i] = [];
+}","const x = new Array(m).fill(new Array(n).fill(Math.random()));"
+"const x = new Array(m).fill(
+  new Array(n).fill(
+    new Array(p).fill(Math.random())
+  )
+)"
+"items.sort(function(a,b) {
+  return compareFieldP(a.p, b.p);
+});"
+"let new_list = items.filter(function(val,idx,ary) { return idx != i });","items.splice(i,1);"
+"for (let i = 1; i <= 1000; i++) setTimeout(() => f(i), 0);"
+"function f(i) {
+   return i<2 ? 1 : i * f(i-1);
+}","const f = i => i === 0 ? 1 : i * f(i-1)"
+"function exp(x, n) {
+   if (n===0) return 1;
+   if (n===1) return x;
+   return n%2 ? x * exp(x*x, (n-1)/2)
+              : exp(x*x, n/2);
+}","const exp = Math.pow;"
+"let x = f(x)"
+"let x = new Set();"
+"function compose(f,g){
+    return function(x){
+        return g(f(x));
+    };
+}"
+"function compose(f,g){
+    return function(x){
+        return g(f(x));
+    };
+}","const compose = f => g => x => g(f(x));"
+"function curry (fn, scope) {
+   
+    scope = scope || window;
+    
+    // omit curry function first arguments fn and scope
+    var args = Array.prototype.slice.call(arguments, 2);
+    
+    return function() {
+	var trueArgs = args.concat(Array.prototype.slice.call(arguments, 0));
+        fn.apply(scope, trueArgs);
+    };
+}","const curry = (fn, ...initialArgs) => (...args) => fn(...initialArgs, ...args);
+
+const add = (a, b) => a + b;
+
+const add5 = curry(add, 5);
+
+const result = add5(1) // 6"
+"let t = s.substring(i, j);","let t = s.slice(i, j);"
+"var ok = s.indexOf(word) !== -1;","var ok = s.includes(word);"
+"var t = s.split("").reverse().join("");"
+"OUTER:
+for (var i in a) {
+   for (var j in b) {
+      if (a[i] === b[j]) {
+         continue OUTER;
+      }
+   }
+   console.log(a[i] + " not in the list");
+}"
+"OUTER:
+for (var i in m) {
+   for (var j in m[i]) {
+      if (m[i][j] < 0) {
+         console.log("Negative value found: "+m[i][j]);
+         break OUTER;
+      }
+   }
+}"
+"s.splice(i, 0, x);"
+"setTimeout(function(){
+	// Instructions after delay
+},5000);","const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+await sleep(5000);
+","await new Promise(r => setTimeout(r, 5000));"
+"let t = s.substring(0,5);"
+"var t = s.slice(-5);"
+"let s = "This is a very long string which needs \n" +
+        "to wrap across multiple lines because \n" +
+        "otherwise my code is unreadable.";","let s = "This is a very long string which needs \
+to wrap across multiple lines because \
+otherwise my code is unreadable.";","let s = `This is a very long string which needs 
+to wrap across multiple lines because 
+otherwise my code is unreadable.`;"
+"let chunks = s.split(/ +/);"
+"while (true) {
+	// to infinity
+}","for(;;) {
+	console.log('Oops')
+}"
+"k in m","m.hasOwnProperty(k)","_m.has(_k)"
+"Object.values(m).includes(v)","[...m.values()].includes(v)"
+"y = x.join(", ");"
+"var s = x.reduce((a, b) => a + b, 0);","var s = x.reduce((a, b) => a + b)"
+"var s = i.toString();","var s = i + "";"
+"{
+  // in file worker.js
+  onmessage = f
+}
+{
+  // in file main.js
+  for (let i = 0; i < 1000; i++) {
+    new Worker ('worker.js')
+      .postMessage (i)
+  }
+}","const tasks = [];
+for (let i = 0; i < 1000; i++) {
+  tasks.push(f(i));
+}
+
+await Promise.all(tasks);
+console.log("Finished");"
+"y = x.filter(p);"
+"var fs = require('fs');","fs.readFile(f, (err, lines) => {
+    if (err) {
+        // Handle error...
+    }
+
+    // Work with `lines` here.
+}"
+"const util = require("util");","console.error(util.format("%d is negative", x));","console.error(x, "is negative");","console.error(`${x} is negative`);"
+"const x = process.argv[2]"
+"var d = Date.now();","var d = new Date();"
+"let i = x.indexOf(y);"
+"var x2 = x.replace(new RegExp(y, 'g'), z);","const x2 = x.replaceAll(y, z);"
+"let x = 3n ** 247n;"
+"const s = Math.round (x * 1000) / 10 + '%'","const percentFormatter = new Intl.NumberFormat('en-US', {
+  style: 'percent',
+  maximumSignificantDigits: 3
+});
+
+const s = percentFormatter.format(x);"
+"let z = x**n"
+"const fac = x => x ? x * fac (x - 1) : x + 1
+const binom = (n, k) => fac (n) / fac (k) / fac (n - k >= 0 ? n - k : NaN)"
+"let x = new Buffer (Math.ceil (n / 8))"
+"const seed = require ('seedrandom')","seed (s)"
+"Math.random ()"
+"console.log(process.argv.slice(2).join(" "));"
+"class Parent {
+    constructor(str) {}
+    fact(new_class, str) {
+        if (new_class.prototype instanceof Parent) {
+            return new new_class(str)
+        }
+    }
+}
+
+class Child extends Parent {}"
+"const gcd = (a, b) => b === 0 ? a : gcd (b, a % b)"
+"const gcd = (a, b) => b === 0 ? a : gcd (b, a % b)
+let x = (a * b) / gcd(a, b)"
+"let s = x.toString(2);"
+"var math = require('mathjs');","var x = math.complex(-2, 3);
+x = math.multiply(x, math.i);"
+"do {
+   something();
+} while (c);"
+"let y = x + .0"
+"let y = BigInt (x | 0)"
+"var y = Math.round(x);"
+"let n = 0 // the number of occurences
+let acc = s
+let i
+while ((i = acc.indexOf (t)) + 1) {
+  n++
+  acc = acc.slice (i + 1)
+}"
+"const r = /htt+p/"
+"const c = i.toString(2).replace(/[^1]/g, '').length"
+"function addingWillOverflow(x, y) {
+  return x > 0 && y > 0 && x > Number.MAX_SAFE_INTEGER - y
+}
+"
+"process.exit()"
+"let buf = new Buffer (1e6)"
+"throw new Error ('x is invalid')"
+"const Foo = function Counter () {
+  let n = 0
+  Object.defineProperty (this, 'value', {get: () => n++})
+}
+{
+  const counter = new Foo ()
+  counter.value // 0
+  counter.value // 1
+}","class Foo {
+  #x = 123;
+  get x() {
+    return this.#x;
+  }
+}"
+"const fs = require('fs');","const x = JSON.parse(fs.readFileSync('./data.json'));","const x = require('./data.json');"
+"const fs = require('fs');","fs.writeFileSync('data.json', JSON.stringify(x));"
+"function control(f){
+	f();
+}"
+"console.log(typeof x);","console.log (x == null ? x + '' : x.constructor.name);"
+"const {readFileSync: read} = require ('fs')","let x = read(path).length"
+"var b = s.startsWith(prefix);","var b = (s.lastIndexOf(prefix, 0) === 0);"
+"var b = s.endsWith(suffix);"
+"new Date (ts * 1000)"
+"let x = d.toISOString().slice(0, 10)"
+"items.sort(c);"
+"<script src="https://code.jquery.com/jquery-1.11.3.js"></script>","$.get(u, function(data){
+  s = data;
+});","var xmlHttp = new XMLHttpRequest();
+xmlHttp.onreadystatechange = function() { 
+	if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+		s = xmlHttp.responseText;
+}
+xmlHttp.open("GET", u, true);
+xmlHttp.send(null);","fetch(u)
+  .then(res => res.text())
+  .then(text => s = text)","const res = await fetch(u)
+s = await res.text()"
+"var s = process.argv0;"
+"let dir = process.cwd ()"
+"const path = require('path');","const dir = path.resolve();","const dir = __dirname;"
+"if (typeof x !== 'undefined') {
+    console.log(x);
+}","try {
+	console.log(x);
+} catch (e) {
+	if (!e instanceof ReferenceError) {
+		throw e;
+	}
+}"
+"const blank = s == null || s.trim() === ''"
+"const { exec } = require('child_process');","exec(`${x} a b`);"
+"[...mymap.entries()].sort().map(([_, x]) => console.log(x))"
+"Object.entries(mymap)
+  .sort((a, b) => a[1] - b[1])
+  .forEach(([key, value]) => {
+    console.log('key:', key, 'value:', value);
+  });"
+"const b = JSON.stringify(x) === JSON.stringify(y);","const arrayDeepEqual = (a, b) => a.length === b.length && a.every((x, i) => deepEqual(x, b[i]))
+
+const deepEqual = (a, b) =>
+  Array.isArray(a) && Array.isArray(b)
+    ? arrayDeepEqual(a, b)
+    : typeof a == 'object' && a && typeof b == 'object' && b
+    ? arrayDeepEqual(Object.entries(a), Object.entries(b))
+    : Number.isNaN(a) && Number.isNaN(b) || a === b
+
+const b = deepEqual(x, y)","import {isDeepStrictEqual} from 'util'","const b = isDeepStrictEqual(x, y)","import _ from 'underscore';","const b = _.isEqual(x, y);"
+"let b = d1 < d2"
+"var regex = RegExp(w, 'g');
+var s2 = s1.replace(regex, '');","const s2 = s1.split(w).join('')"
+"var n = x.length;"
+"var y = new Set(x);"
+"x = [...new Set(x)];","x = Array.from(new Set(x));","const seen = new Set();
+x = x.filter( v => {
+  if(seen.has(v))
+    return false;
+  seen.add(v);
+  return true;
+});"
+"const {createInterface} = require('readline')
+
+const rl = createInterface ({
+  input: process.stdin,
+  output: process.stdout
+})
+
+rl.question('Input an integer: ', response => {
+  let n = parseInt (response)
+  // stuff to be done with n goes here
+
+  rl.close()
+})"
+"const spades = 0
+const hearts = 1
+const diamonds = 2
+const clubs = 3"
+"console.assert(_isConsistent);
+"
+"function binarySearch(a, x, i = 0) {
+  if (a.length === 0) return -1
+  const half = (a.length / 2) | 0
+  return (a[half] === x) ?
+    i + half :
+    (a[half] > x) ?
+    binarySearch(a.slice(0, half), x, i) :
+    binarySearch(a.slice(half + 1), x, half + i + 1)
+}"
+"console.time('foo');
+foo();
+console.timeEnd('foo');"
+"const foo = () => ({string: 'string', bool: true})","const foo = () => ['string', true];"
+"import { readFile } from 'fs/promises';","const foo = new Function(await readFile('foobody.txt'));"
+"c1 ? f1 : c2 ? f2 : f3","switch (true) {
+  case c1:
+    f1();
+    break;
+  case c2:
+    f2();
+    break;
+  case c3:
+    f3();
+    break;
+}","if (c1) {
+  f1();
+} else if (c2) {
+  f2();
+} else if (c3) {
+  f3();
+}"
+"function clock(f) {
+  var start = new Date().getTime();
+  f();
+  var end = new Date().getTime();
+  return end - start;
+}","function clock(f) {
+  var start = performance.now();
+  f();
+  var end = performance.now();
+  return end - start;
+}"
+"var lowerS = s.toLowerCase();
+var lowerWord = word.toLowerCase();
+var ok = lowerS.indexOf(lowerWord) !== -1;"
+"const items = [a, b, c];","const items = new Array(a, b, c);"
+"const idx = items.indexOf(x)
+if (idx !== -1) items.splice(idx, 1)"
+"const newlist = items.filter(y => x !== y)"
+"var b = /^[0-9]+$/.test(s);"
+"{
+  "dependencies": "tempy^1.0.1"
+}
+
+import tempy from 'tempy'","const tempFile = tempy.file()","{
+  "dependencies": "tempy^1.0.1"
+}
+
+import tempy from 'tempy'","const resultOfCallback = tempy.file.task(tempFile => {
+ // do something with tempFile
+})"
+"const tempDir = await Deno.makeTempDir();"
+"m.delete(k)"
+"for (let item of items1) console.log(item)
+for (let item of items2) console.log(item)","items1.concat(items2).forEach(console.log)"
+"const s = x.toString(16)"
+"const shorter = _items1.length > _items2.length ? _items2 : _items1;
+const longer = _items1.length <= _items2.length ? _items2 : _items1;
+shorter.map((m, i) => {
+  console.log(m);
+  console.log(longer[i]);
+});","const iterator1 = items1[Symbol.iterator]()
+const iterator2 = items2[Symbol.iterator]()
+
+let result1 = iterator1.next()
+let result2 = iterator2.next()
+
+while(!(result1.done && result2.done)) {
+  if (!result1.done) {
+    console.log(result1.value)
+    result1 = iterator1.next()
+  }
+  if (!result2.done) {
+    console.log(result2.value)
+    result2 = iterator2.next()
+  }
+}"
+"const fs = require('fs');","const b = fs.existsSync(fp);","import { access } from 'fs/promises';","let b = true;
+try {
+	await access(fp);
+} catch {
+	b = false;
+}"
+"console.log(Date(), msg);","console.error(Date(), msg);"
+"let f = +s"
+"const t = [...s].filter(c => c.charCodeAt(0) <= 0x7f).join('')","const t = s.replace(/[^\x00-\x7f]/gu, '')"
+"process.stdin.on('data', processLine)
+
+function processLine (line) {
+  const string = line + ''
+  console.log(string)
+}","const ints = await new Promise(resolve => {
+  let string = ''
+  process.stdin
+    .on('data', data => string += data.toString())
+    .on('close', () => resolve(string.split('\n').map(line => Number.parseInt(line))))
+})"
+" "
+"const slashscrape = p => (
+  p.slice (-1) === '/' ?
+    p.slice (0, -1) :
+    p
+)"
+"import * as path from 'path'","p = p.endsWith(path.sep) ? p.slice(0, -path.sep.length) : p"
+"let s = c"
+"let t = s + i;","let t = `${s}${i}`"
+"var c = "#";
+for(var i = 0; i<3; i++) {
+  var sub1 = c1.substring(1+2*i, 3+2*i);
+  var sub2 = c2.substring(1+2*i, 3+2*i);
+  var v1 = parseInt(sub1, 16);
+  var v2 = parseInt(sub2, 16);
+  var v = Math.floor((v1 + v2) / 2);
+  var sub = v.toString(16).toUpperCase();
+  var padsub = ('0'+sub).slice(-2);
+  c += padsub;
+}","c = "#" + (() => {
+  const [p1, p2] = [c1, c2].map((color) => parseInt(color.slice(1), 16)),
+    a = [];
+
+  for (let i = 0; i <= 2; i += 1) {
+    a.push(Math.floor(((p1 >> (i * 8) & 0xff) + (p2 >> (i * 8) & 0xff)) / 2));
+  }
+
+  return a.reverse().map((num) => num.toString(16).padStart(2, "0")).join("");
+})();"
+"const fs = require('fs');","try {
+  fs.unlinkSync(filepath);
+} catch (err) {
+  console.error(err);
+}","import {unlink} from 'fs/promises'","await unlink(filepath)","Deno.remove(filepath, { recursive: true }).catch((err) => console.error(err));"
+"let s = i.toString();
+if(i<100)
+  s = ('00'+i).slice(-3);"
+"const planet = 'Earth'"
+"const idx = x.map((item, i) => i);
+while (y.length < k) {
+  const i = parseInt(Math.random() * idx.length, 10);
+  y.push(x[[idx[i]]]);
+  idx.splice(i, 1);
+}"
+"os","const is64Bit = os.arch() === 'x64' || process.env.hasOwnProperty('PROCESSOR_ARCHITEW6432');
+is64Bit ? _f64() : _f32();
+"
+"elements = elements.map(x => x * c)"
+"const args = process.argv.slice(2)
+if (args.includes('b')) bat()
+else if (args.includes('f')) fox()"
+"for (let index = 0; index < list.length; index = index + 2) {
+  console.log(list[index], list[index + 1])
+}"
+"const x = items[items.length - 1];","const x = items.at(-1);"
+"var ab = a.concat(b);"
+"if (s.indexOf(p) === 0) {
+    t = s.substring(p.length);
+}"
+"const t = s.endsWith(w) ? s.slice(0, -w.length) : s"
+"const n = s.length;","const n = [...s].length;"
+"const n = mymap.size"
+"s.push(x);","s = [...s, x];"
+"m.set(k, v);","m[k] = v;"
+"new Intl.NumberFormat().format(1000);"
+"fetch(u, {
+        method: "POST",
+	body: JSON.stringify(data)
+})"
+"const s = Buffer.from(a).toString('hex')","const s = a.map(n => n.toString(16).padStart(2, '0')).join('')"
+"s
+  .split('')
+  .map((el, ix, arr) => ix % 2 ? null : el + arr[ix + 1])
+  .filter(el => el !== null)
+  .map(x => parseInt(x, 16))"
+"const pointInRect = ({x1, y1, x2, y2}, {x, y}) => (
+  (x > x1 && x < x2) && (y > y1 && y < y2)
+)"
+"const center = ({x1, y1, x2, y2}) => ({x: (x1 + x2) / 2, y: (y1 + y2) / 2})","class Point {
+  constructor (x, y) {
+    this.x = x
+    this.y = y
+  }
+}
+const center = ({x1, y1, x2, y2}) => new Point ((x1 + x2) / 2, (y1 + y2) / 2)"
+"const fs = require('fs');","const x = fs.readdirSync(d)
+"
+"c=console.log
+q=decodeURIComponent('%22')
+l=[
+"c=console.log",
+"q=decodeURIComponent('%22')",
+"l=[",
+"]",
+"for(i=0;i<3;i++)c(l[i])",
+"for(i=0;i<7;i++)c(q+l[i]+q+',')",
+"for(i=3;i<7;i++)c(l[i])",
+]
+for(i=0;i<3;i++)c(l[i])
+for(i=0;i<7;i++)c(q+l[i]+q+',')
+for(i=3;i<7;i++)c(l[i])
+"
+"fetch(u, {
+        method: "PUT",
+	body: JSON.stringify(data)
+})"
+"var nextDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var day = nextDate.getDate()
+var month = nextDate.getMonth() + 1
+var year = nextDate.getFullYear()
+var t = `${day}/${month}/${year}`;","var tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);","var now = new Date()
+var year = now.getFullYear()
+var month = now.getMonth()
+var day = now.getDate()
+
+var tomorrow = new Date(0)
+tomorrow.setFullYear(year, month, day + 1)
+tomorrow.setHours(0, 0, 0, 0)
+
+var shortDateFormat = Intl.DateTimeFormat(undefined, { dateStyle: "short" })
+var t = shortDateFormat.format(tomorrow)"
+"let id = setTimeout(f, 30000, 42);"
+"process.exit()"
+"y = x.filter(e => P(e)).map(e => T(e))"
+"if(a.some(item => item > x)){
+	f()
+}"
+"const a = [[1, 2, 3], [4, 5, 6]]
+const m = a[0].length
+const b = Array.from({ length: m }, (_, n) => a.map(row => row[n]))"
+"/**
+ * @param {Array<Array>} arry
+ *
+ * @return {Array<Array>}
+ */
+function foo(arry) {
+  let len = 0;
+  let sum = 0;
+
+  arry.forEach(function(base, i) {
+    len += base.length;
+
+    base.forEach(function(a, j) {
+      sum += a * (i + 1) * (j + 1);
+    });
+  });
+
+  console.log('Array size:', arry.length, ',', len);
+
+  return sum;
+}
+
+foo(arry2d);"
+"import fs from "fs";","fs.readFileSync(path).split("\n")"
+"process.exit(x);"
+"var h = Math.sqrt(x*x + y*y);","const h = Math.hypot(x, y);"
+"const n = Math.hypot(...data)","var n = Math.hypot.apply(null, data)"
+"s = data.reduce((a, c) => a + c ** 2, 0)"
+"function frexp(a) {
+    exponent = ( Math.floor(Math.log(a, 2)) + 1 )
+    mantissa = ( a * Math.pow(2, -a) )
+
+    return [ mantissa, exponent ]
+}
+"
+"const foo = process.env["FOO"] || "none";","const foo = process.env.FOO ?? 'none'"
+"switch (str) {
+  case "foo":
+    foo();
+    break;
+  case "bar":
+    bar();
+    break;
+  case "baz":
+    baz();
+    break;
+  case "barfl":
+    barfl();
+    break;
+}"
+"a.forEach((aa, i) => a[i] = e * (aa + b[i] * c[i] + Math.cos(d[i])))"
+"const { version } = process;
+console.log(version);"
+"import { mkdir } from 'fs/promises';","await mkdir(path);"
+"s = s.padEnd(m, c);"
+"s = s.padStart(m, c);"
+"const c = [...new Set(a)].filter(e => b.includes(e));"
+"let t = s.replace(/\s+/g, ' ');"
+"let t = [2.5, "hello", -1];"
+"t = s.replace(/[^\d]/gm,"");"
+"let i = items.indexOf(x);"
+"const found = items.some(condition);
+
+if (!found) doSomethingElse();"
+"items.unshift(x);","items = [x, ...items];"
+"function f(x) {
+	console.log(x ? `Present: ${x}` : 'Not present');
+}"
+"items.pop();"
+"let y = x.slice();"
+"const { copyFileSync } = require('fs');","copyFileSync(src, dst);"
+"const verbose = process.argv.includes('-v');
+console.log('verbose is', verbose);"
+"var s = btoa(data)"
+"var data = atob(s)"
+"const c = a ^ b;"
+"const c = Uint8Array.from(a, (v, i) => v ^ b[i])"
+"const matches = s.match(/\b\d{3}\b/);
+const x = matches ? matches[0] : '';"
+"for (const e of x) {
+	f(e);
+}","let v = x.values();
+let result = v.next();
+while (!result.done) {
+  f(result.value);
+  result = v.next();
+}","x.forEach(f);"
+"console.log(a);","console.table(a);"
+"console.log(m);","console.table(m);"
+"console.log(x);"
+"const c = new Set(items).size;"
+"for (const [key, value] of x.entries()) {
+	if (!p(value)) x.splice(key, 1);
+}","x = x.filter((e) => p(e));"
+"const [a, b, c] = [42, "hello", 5.0];"
+"// Objects
+const values = Object.values(m);
+
+// Maps
+const values = [...m.values()];
+
+const x = values[~~(Math.random() * values.length)]"
+"const i = parseInt(s, 2)"
+"const x = condition() ? 'a' : 'b';"
+"console.trace()"
+"x = x.map(e => e === 'foo' ? 'bar' : e);"
+"console.log(x);"
+"for (let i = 5; i >= 0; i--) {
+  console.log(i)
+}"
+"[...items].reverse().forEach((item, index) => 
+console.log(Math.abs(index -= items.length), item));"
+"let b = a.map(Number)"
+"var parts = s.split(/[-_,]/)"
+"let items = [];"
+"const d = new Date();
+
+let hr = d.getHours();
+let min = d.getMinutes();
+let sec = d.getSeconds();
+
+if ( hr.toString().length === 1 ) {
+  hr = '0' + hr;
+}
+
+if ( min.toString().length === 1 ) {
+  min = '0' + min;
+}
+
+if ( sec.toString().length === 1 ) {
+  sec = '0' + sec;
+}
+
+const x = '' + hr + ':' + min + ':' + sec;"
+"let i = 42
+i.toString(2)
+  .split('')
+  .reduce((parity, bit) => parity ^ bit, 0)
+"
+"const s = v.repeat(n)"
+"function foo(x) {
+  console.log(typeof x == 'string' ? x : 'Nothing.')
+}
+
+foo('Hello, world!')
+foo(42)"
+"for (let i = 1; i <= 100; i++) {
+    let out = "";
+    if (!(i % 3)) out += "Fizz";
+    if (!(i % 5)) out += "Buzz";
+    if (!out) out = i;
+    console.log(out);
+}"
+"let t = s.replace(/\s/g,'');"
+"x.add(e);"
+"const parts = s.split(sep);"
+"const a = new Array(n).fill(0);"
+"for (const [i, c] of [...s].entries()) {
+	console.log(`Char ${i} is ${c}`);
+}"
+"let b = x.has(e);"
+"const s = a + b;"
+"const s = [1, 2, 3];
+s.push(x);
+const y = s.pop();"
+"// This is a comment"
+"let s = `Our sun has ${x} planets`;"
+"const data = new TextEncoder().encode(s);"
+"let s = n.toString(b);
+"
+"let y = structuredClone(x);"
+"const s = ((n) => {
+    const alphanum = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let s = "";
+    for (let i = 0; i < n; i += 1) {
+        s += alphanum[~~(Math.random() * alphanum.length)];
+    }
+    return s;
+})(n);"
+"let t = s.toLowerCase();"
+"let t = s.toUpperCase();"

@@ -1,0 +1,877 @@
+"print("Hello World")","print('Hello World')","Hello world","Print"hello world""
+"for _ in range(10):
+    print("Hello")","print("Hello\n"*10)","i = 0
+while i < 10:
+    print('hello')
+    i = i + 1"
+"def finish(name):
+    print(f'My job here is done. Goodbye {name}')"
+"def square(x):
+    return x*x","def square(x):
+    return x**2"
+"from dataclasses import dataclass","@dataclass
+class Point:
+    x: float
+    y: float","from collections import namedtuple","Point = namedtuple("Point", "x y")"
+"for x in items:
+        doSomething( x )","[do_something(x) for x in items]"
+"for i, x in enumerate(items):
+    print i, x"
+"x = {"one" : 1, "two" : 2}"
+"class Node:
+	def __init__(self, data):
+		self.data = data
+		self.left = None
+		self.right = None","class Node:
+  def __init__(self, data, left_child, right_child):
+    self.data = data
+    self._left_child = left_child
+    self._right_child = right_child"
+"from random import shuffle","shuffle(x)","import random","random.shuffle(x)"
+"import random","random.choice(x)"
+"x in list"
+"for k, v in mymap.items():
+    print(k, v)"
+"import random","random.uniform(a,b)"
+"import random","random.randint(a,b)"
+"def dfs(bt):
+	if bt is None:
+		return
+	dfs(bt.left)
+	f(bt)
+	dfs(bt.right)"
+"class Node:
+    def __init__(self, value, *children):
+        self.value = value
+        self.children = list(children)"
+"def DFS(f, root):
+	f(root)
+	for child in root:
+		DFS(f, child)","void dfs(const auto &tree, const auto &root)
+{
+	f(root);
+
+	for (auto child : tree)
+		dfs(tree, child);
+}"
+"x = reversed(x)","y = x[::-1]","x.reverse()"
+"def search(m, x):
+    for idx, item in enumerate(m):
+        if x in item:
+            return idx, item.index(x)"
+"a, b = b, a"
+"i = int(s)"
+"s =  '{:.2f}'.format(x)","s = f'{x:.2f}'"
+"s = "ネコ""
+"from queue import Queue
+from threading import Thread","q = Queue()
+
+def worker():
+    while True:
+        print(f"Hello, {q.get()}")
+        q.task_done()
+
+Thread(target=worker, daemon=True).start()
+
+q.put("Alan")
+q.join()"
+"x = [[0] * n for _ in range(m)]"
+"x = [[[0 for k in range(p)] for j in range(n)] for i in range(m)]","import numpy","x = numpy.zeros((m,n,p))"
+"items = sorted(items, key=lambda x: x.p)","from operator import attrgetter","items = sorted(items, key=attrgetter('p'))"
+"del items[i]","items.pop(i)"
+"from multiprocessing import Pool","pool = Pool()
+for i in range(1, 1001):
+	pool.apply_async(f, [i])"
+"def f(i):
+   if i == 0:
+       return 1
+   else:
+       return i * f(i-1)"
+"def exp(x, n):
+        return x**n
+"
+"import threading","lock = threading.Lock()
+
+lock.acquire()
+try:
+	x = f(x)
+finally:
+	lock.release()","import threading","with threading.Lock():
+    x = f(x)
+"
+"class T(object):
+    pass
+
+x = set(T())","class T:
+   ...
+
+s = set(T() for _ in range(x))"
+"def compose(f, g):
+    return lambda a: g(f(a))"
+"def compose(f, g):
+	return lambda x: g(f(x))"
+"from functools import partial","def f(a):
+	return lambda b: a+b
+
+print (f(2)(1))
+
+#add_to_two = partial(f, 2)"
+"t = s[i:j]"
+"ok = word in s"
+"from collections import defaultdict","class Vertex(set): pass
+class Graph(defaultdict):
+  def __init__(self, *paths):
+    self.default_factory = Vertex
+    for path in paths:
+      self.make_path(path)
+
+  def make_path(self, labels):
+    for l1, l2 in zip(labels, labels[1:]):
+      self[l1].add(l2)
+      self[l2].add(l1)
+
+G = Graph((0, 1, 2, 3), (1, 4, 2))"
+"t = s.decode('utf8')[::-1].encode('utf8')","t = s[::-1]"
+"for v in a:
+    try:
+        for u in b:
+            if v == u:
+                raise Exception()
+        print(v)
+    except Exception:
+        continue
+","for v in a:
+  keep = True
+  for w in b:
+    if w == v:
+      keep = False
+      break
+  if keep:
+    print(v)"
+"class BreakOuterLoop (Exception): pass
+
+try:
+    position = None
+    for row in m:
+        for column in m[row]:
+            if m[row][column] == v:
+                position = (row, column)
+                raise BreakOuterLoop
+except BreakOuterLoop:
+    pass","def loop_breaking(m, v): 
+    for i, row in enumerate(m): 
+        for j, value in enumerate(row): 
+            if value == v: 
+                return (i, j)
+    return None
+
+print(loop_breaking(([1,2,3],[4,5,6],[7,8,9]), 6))","from itertools import chain","matrix = [[1,2,3],[4,-5,6],[7,8,9]]
+try:
+    print(next(i for i in chain.from_iterable(matrix) if i < 0))
+except StopIteration:
+    pass"
+"s.insert(i, x)"
+"import time","time.sleep(5)"
+"t = s[:5]"
+"t = s[-5:]"
+"s = """Huey
+Dewey
+Louie""""
+"chunks = s.split()","chunks = s.split(' ')"
+"while True:
+    pass"
+"k in m"
+"v in m.values()"
+"y = ', '.join(x)
+","y = ', '.join(map(str, x))"
+"s = sum(x)"
+"s = str(i)"
+"from multiprocessing import Pool","def f(i):
+	i * i
+
+with Pool(1000) as p:
+	p.map(func=f, iterable=range(1, 1001))
+
+print('Finished')"
+"y = list(filter(p, x))","y = [element for element in x if p(element)]"
+"lines = open(f).read()","with open(f) as fo:
+    lines = fo.read()"
+"import sys","print(x, "is negative", file=sys.stderr)","import sys","print >>sys.stderr, "%s is negative" % x"
+"import sys","x = sys.argv[1]"
+"import datetime","d = datetime.datetime.now()"
+"i = x.find(y)"
+"x2 = x.replace(y, z)"
+"x = 3 ** 247"
+"s = '{:.1%}'.format(x)","s = f"{x:.01%}""
+"z = x**n"
+"import math","def binom(n, k):
+    return math.factorial(n) // math.factorial(k) // math.factorial(n - k)","import math","def binom(n, k):
+    return math.comb(n, k)"
+"from __future__ import division
+import math","x = bytearray(int(math.ceil(n / 8.0)))"
+"import random","rand = random.Random(s)"
+"import random","rand = random.Random()"
+"import sys","print ' '.join(sys.argv[1:])"
+"def fact(a_class, str_):
+    if issubclass(a_class, Parent):
+        return a_class(str_)"
+"from fractions import gcd","x = gcd(a, b)","import math","x = math.gcd(a, b)"
+"from math import gcd","x = (a*b)//gcd(a, b)","import math","x = math.lcm(a, b)"
+"s = '{:b}'.format(x)"
+"x = 3j-2
+y = x * 1j"
+"while True:
+    do_something()
+    if not c:
+        break"
+"y = float(x)"
+"y = int(x)"
+"y = int(x + 0.5)"
+"count = s.count(t)"
+"import re","r = re.compile(r"htt+p")"
+"c = bin(i).count("1")","c = i.bit_count()"
+"def adding_will_overflow(x,y):
+    return False"
+"def multiplyWillOverflow(x,y):
+	return False"
+"import sys","sys.exit(1)"
+"buf = bytearray(1000000)"
+"raise ValueError("x is invalid")"
+"class Foo(object):
+    def __init__(self):
+        self._x = 0
+
+    @property
+    def x(self):
+        """
+        Doc for x
+        """
+        return self._x"
+"import json","with open("data.json", "r") as input:
+    x = json.load(input)"
+"import json","with open("data.json", "w") as output:
+    json.dump(x, output)"
+"def control(f):
+    f()"
+"print(type(x))","print(x.__class__)"
+"import os","x = os.path.getsize(path)"
+"b = s.startswith(prefix)"
+"b = s.endswith(suffix)"
+"import datetime","d = datetime.date.fromtimestamp(ts)"
+"from datetime import date","d = date(2016, 9, 28)
+x = d.strftime('%Y-%m-%d')","from datetime import date","d = date.today()
+x = d.isoformat()"
+"items.sort(key=c)","import functools","items.sort(key=functools.cmp_to_key(c))"
+"import urllib.request
+","with urllib.request.urlopen(u) as f:
+    s = f.read()
+","import requests","s = requests.get(u).content.decode()"
+"import urllib","filename, headers = urllib.request.urlretrieve(u, 'result.txt')
+","import requests","with open("results.txt", "wb") as fh:
+	fh.write(requests.get(u).content)"
+"import lxml.etree","x = lxml.etree.parse('data.xml')"
+"import sys","s = sys.argv[0]"
+"import os","dir = os.getcwd()"
+"import os","dir = os.path.dirname(os.path.abspath(__file__))"
+"if 'x' in locals():
+	print x","try:
+    x
+except NameError:
+    print("does not exist")"
+"import pympler.asizeof","n = pympler.asizeof.asizeof(t)"
+"blank = not s or s.isspace()"
+"import subprocess","subprocess.call(['x', 'a', 'b'])"
+"for k in sorted(mymap):
+    print(mymap[k])
+"
+"for x, k in sorted((x, k) for k,x in mymap.items()):
+    print(k, x)
+","import operator","for key, value in sorted(d.items(), key=operator.itemgetter(1)):
+    print(key, value)"
+"b = x == y"
+"import datetime","b = d1 < d2"
+"s2 = s1.replace(w, '')"
+"n = len(x)"
+"y = set(x)"
+"x = list(set(x))","from collections import OrderedDict","x = list(OrderedDict(zip(x, x)))","def dedup(x):
+  y = []
+  for i in x:
+    if not i in y:
+      y.append(i)
+  return y"
+"n = int(input("Input Prompting String: "))"
+"import socket","sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind((UDP_IP, p))
+while True:
+    data, addr = sock.recvfrom(1024)
+    print("received message:", data)"
+"class Suit:
+	SPADES, HEARTS, DIAMONDS, CLUBS = range(4)","from enum import Enum","class Suit(Enum):
+	SPADES = 1
+	HEARTS = 2
+	DIAMONDS = 3
+	CLUBS = 4"
+"assert isConsistent"
+"import bisect","def binarySearch(a, x):
+    i = bisect.bisect_left(a, x)
+    return i if i != len(a) and a[i] == x else -1
+"
+"import time","t1 = time.perf_counter_ns()
+foo()
+t2 = time.perf_counter_ns()
+print('Nanoseconds:', t2 - t1)"
+"def foo():
+    return 'string', True
+"
+"import imp","foo = imp.load_module('foobody', 'foobody.txt').foo"
+"def BFS(f, root):
+	Q = [root]
+	while Q:
+		n = Q.pop(0)
+		f(n)
+		for child in n:
+			if not n.discovered:
+				n.discovered = True
+				Q.append(n)"
+"from collections import deque","def breadth_first(start, f):
+  seen = set()
+  q = deque([start])
+  while q:
+    vertex = q.popleft()
+    f(vertex)
+    seen.add(vertex)
+    q.extend(v for v in vertex.adjacent if v not in seen)"
+"def depth_first(start, f):
+  seen = set()
+  stack = [start]
+  while stack:
+    vertex = stack.pop()
+    f(vertex)
+    seen.add(vertex)
+    stack.extend(
+      v for v in vertex.adjacent if v not in seen
+    )"
+"f1() if c1 else f2() if c2 else f3() if c3 else None","if c1:
+    f1()
+elif c2:
+    f2()
+elif c3:
+    f3()"
+"import timeit","duration = timeit.timeit("f()", setup="from __main__ import f")","import time","start = time.time()
+f()
+end = time.time()
+return end - start"
+"ok = word.lower() in s.lower()"
+"items = [a, b, c]"
+"items.remove(x)"
+"newlist = [item for item in items if item != x]"
+"b = s.isdigit()
+"
+"import tempfile","file = tempfile.TemporaryFile()"
+"import tempfile	","td = tempfile.TemporaryDirectory()"
+"m.pop(k, None)"
+"for x in items1 + items2:
+    print(x)
+"
+"s = hex(x)"
+"for pair in zip(item1, item2): print(pair)"
+"import os","b = os.path.exists(fp)","from pathlib import Path","b = Path(fp).exists()"
+"import sys, logging","logging.basicConfig(stream=sys.stdout, level=logging.DEBUG, format="%(asctime)-15s %(message)s")
+logger = logging.getLogger('NAME OF LOGGER')
+
+logger.info(msg)"
+"import locale","s = u'545,2222'
+locale.setlocale(locale.LC_ALL, 'de')
+f = locale.atof(s)","f = float(s)","f = float(s)"
+"import re","t = re.sub('[^\u0000-\u007f]', '',  s)","t = s.encode("ascii", "ignore").decode()"
+"list(map(int, input().split())","numbers = [int(x) for x in input().split()]"
+"p = p.rstrip("/")"
+"import os","if p.endswith(os.sep):
+    p = p[:-1]"
+"s = c"
+"t = '{}{}'.format(s,i)","t = f'{s}{i}'"
+"r1, g1, b1 = [int(c1[p:p+2], 16) for p in range(1,6,2)]
+r2, g2, b2 = [int(c2[p:p+2], 16) for p in range(1,6,2)]
+c = '#{:02x}{:02x}{:02x}'.format((r1+r2) // 2, (g1+g2) //2, (b1+b2)// 2)","import numpy","class RGB(numpy.ndarray):
+  @classmethod
+  def from_str(cls, rgbstr):
+    return numpy.array([
+      int(rgbstr[i:i+2], 16)
+      for i in range(1, len(rgbstr), 2)
+    ]).view(cls)
+ 
+  def __str__(self):
+    self = self.astype(numpy.uint8)
+    return '#' + ''.join(format(n, 'x') for n in self)
+ 
+c1 = RGB.from_str('#a1b1c1')
+print(c1)
+c2 = RGB.from_str('#1A1B1C')
+print(c2)
+
+print((c1 + c2) / 2)"
+"import pathlib","path = pathlib.Path(_filepath)
+path.unlink()"
+"s = format(i, '03d')"
+"PLANET = 'Earth'"
+"import random","y = random.sample(x, k)"
+"class Trie:
+   def __init__(self, prefix, value=None):
+       self.prefix = prefix
+       self.children = []
+       self.value = value"
+"import sys","if sys.maxsize > 2**32:
+    f64()
+else:
+    f32()
+
+"
+"elements = [c * x for x in elements]"
+"import sys","if 'b' in sys.argv[1:]: bat()
+if 'f' in sys.argv[1:]: fox()
+","options = {
+	'b': bat
+	'f': fox
+}
+
+for option, function in options:
+	if option in sys.argv[1:]:
+		function()"
+"for x in zip(list[::2], list[1::2]):
+    print(x)","from itertools import tee","def pairwise(iterable):
+    "s -> (s0,s1), (s1,s2), (s2, s3), ..."
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
+
+for a, b in pairwise(list):
+    print(a, b)"
+"import webbrowser","webbrowser.open(s)"
+"x = items[-1]"
+"ab = a + b"
+"t = s[s.startswith(p) and len(p):]","t = s.removeprefix(p)"
+"t = s.removesuffix(w)"
+"n = len(s)"
+"n = len(mymap)"
+"s.append(x)"
+"m[k] = v"
+"f'{1000:,}'","format(1000, ',')","'{:,}'.format(1000)"
+"from urllib import request, parse","data = parse.urlencode(<your data dict>).encode()
+req =  request.Request(u, data=data, method="POST")
+resp = request.urlopen(req)"
+"s = a.hex()"
+"a = bytearray.fromhex(s)"
+"import os","extensions = [".jpg", ".jpeg", ".png"]
+L = [f for f in os.listdir(D) if os.path.splitext(f)[1] in extensions]
+","import re
+import os","filtered_files = ["{}/{}".format(dirpath, filename) for dirpath, _, filenames in os.walk(D) for filename in filenames if re.match(r'^.*\.(?:jpg|jpeg|png)$', filename)]","import glob
+import itertools","list(itertools.chain(*(glob.glob("*/**.%s" % ext) for ext in ["jpg", "jpeg", "png"])))","glob
+os","extensions = [".jpg", ".jpeg", ".png"]
+L = [f for f in glob.glob(os.path.join(D, "**/*"), recursive=True)) if os.path.splitext(f)[1] in extensions]"
+"b = (x1 < x < x2) and (y1 < y < y2)"
+"center = ((x1+x2)/2, (y1+y2)/2)","from collections import namedtuple","Point = namedtuple('Point', 'x y')
+center = Point((x1+x2)/2, (y1+y2)/2)"
+"import os","x = os.listdir(d)"
+"s = 's = %r\nprint(s%%s)'
+print(s%s)"
+"import requests","content_type = 'text/plain'
+headers = {'Content-Type': content_type}
+data = {}
+
+r = requests.put(u, headers=headers, data=data)
+status_code, content = r.status_code, r.content
+"
+"from datetime import date, timedelta","t = str(date.today() + timedelta(days=1))"
+"import threading","timer = threading.Timer(30.0, f, args=(42,) ) 
+timer.start() 
+"
+"import sys","sys.exit(0)"
+"class UnionFind:
+    def __init__(self, size):
+        self.rank = [0] * size
+        self.p = [i for i in range(size)]
+
+    def find_set(self, i):
+        if self.p[i] == i:
+            return i
+        else:
+            self.p[i] = self.find_set(self.p[i])
+            return self.p[i]
+
+    def is_same_set(self, i, j):
+        return self.find_set(i) == self.find_set(j)
+
+    def union_set(self, i, j):
+        if not self.is_same_set(i, j):
+            x, y = self.find_set(i), self.find_set(j)
+ "
+"import numpy as np","c = a @ b
+","import numpy as np","c = np.matmul(a, b)"
+"y = [T(e) for e in x if P(e)]","y = list(map(T, filter(P, x)))"
+"from ctypes import *","a = (c_int * 10)(*range(10))
+n = 10
+libc = cdll.LoadLibrary('/path/to/c_library')
+libc.foo(c_void_p(a), c_int(n))
+"
+"if any(v > x for v in a):
+    f()"
+"import decimal	","a = decimal.Decimal('1234567890.123456789012345')"
+"import numpy as np","a = np.array([[1,2], [3,4], [5,6]])
+b = a.T
+","a = [[1,2], [3,4], [5,6]]
+b = list(map(list, zip(*a)))"
+"import numpy as np","b = np.roll(a, m, axis=1)"
+"def foo(a):
+    print(len(a))
+    print(sum(
+        x*(i+1) + y*(i+1)*2 for i, (x, y) in enumerate(a)
+    ))"
+"def foo(data, r):
+    for i in r: 
+        data[i] = 42
+
+foo(a, range(0, m+1, 2))"
+"with open(path) as f:
+    lines = f.readlines()"
+"import sys","sys.exit(x)"
+"F.truncate(F.tell())"
+"import math","h = math.hypot(x, y)"
+"import numpy as np","np.linalg.norm(adata2[:, 0:3] - adata1[ipc1, 0:3], axis=1)","import numpy as np","n = np.linalg.norm(data)"
+"s = sum(i**2 for i in data)"
+"import statistics","m = statistics.mean(data)
+sd = statistics.stdev(data)
+"
+"import math","print(math.frexp(a))"
+"import os","try:
+    foo = os.environ['FOO']
+except KeyError:
+    foo = "none"","from os import getenv","foo = getenv('FOO', 'none')","import os","foo = os.environ.get('FOO', 'none')"
+"switch = {'foo': foo, 
+	'bar': bar, 
+	'baz': baz, 
+	'barfl': barfl
+	}
+
+switch_funct = switch.get(string)
+if switch_funct : switch_funct()"
+"def func():
+    a = [0] * n
+    # local variable automatically deallocated at end of function
+    return"
+"import math","for i in xrange(len(a)):
+	a[i] = e*(a[i] + b[i] + c[i] + math.cos(a[i]))
+","import math","a = [e*(a[i] + b[i] + c[i] + math.cos(d[i])) for i in range(len(a))]"
+"class T:
+    def __init__(self, s, n):
+        self.s = s
+        self.n = n
+        return
+
+v = T('hello world', [1, 4,  9, 16, 25])
+del v
+"
+"import sys","version = sys.version
+options = sys.flags"
+"import os","os.mkdir(path)"
+"import os","b = os.path.isdir(path)"
+"import itertools","strings = ['ᾲ στο διάολο', 
+           'ὰι στο διάολο', 
+           'Ὰͅ ΣΤΟ ΔΙΆΟΛΟ', 
+           'ᾺΙ ΣΤΟ ΔΙΆΟΛΟ']
+
+for a, b in itertools.combinations(strings, 2):
+    print(a, b, a.casefold() == b.casefold())
+"
+"s = s.ljust(m, c)"
+"s = s.rjust(m, c)"
+"s = s.center(m, c)"
+"import zipfile","with zipfile.ZipFile(name, 'w', zipfile.ZIP_DEFLATED) as zip:
+    for file in list_:
+        zip.write(file)"
+"c = list(set(a) & set(b))","c = list(set(a).intersection(b))"
+"import re","t = re.sub(' +', ' ', s)","t: str = " ".join(s.split())"
+"t = (2.5, "hello", -1)"
+"import re","t = re.sub(r"\D", "", s)"
+"i = items.index(x) if x in items else -1"
+"for item in items:
+    if item == 'baz':
+        print('found it')
+        break
+else:
+    print('never found it')"
+"items = [x] + items","items.insert(0, x)"
+"def f(x=None):
+    if x is None:
+        print("Not present")
+    else:
+        print("Present", x)"
+"items.pop()"
+"y = x[:]"
+"import shutil","shutil.copy(src, dst)"
+"try:
+    s.decode('utf8')
+    b = True
+except UnicodeError:
+    b = False
+
+"
+"import argparse","parser = argparse.ArgumentParser()
+parser.add_argument('-v', action='store_true', dest='verbose')
+args = parser.parse_args()
+print('verbose is', args.verbose)
+"
+"import argparse","parser = argparse.ArgumentParser()
+parser.add_argument('-country', default='Canada', dest='country')
+args = parser.parse_args()
+print('country is', args.country)
+"
+"import base64","b = base64.b64encode(data)
+s = b.decode()"
+"import base64","data = base64.decode(s)"
+"import fractions","q = fractions.Fraction(a, b)"
+"c = a ^ b"
+"c = bytes([aa ^ bb for aa, bb in zip(a, b)])"
+"import re","m = re.search(r'\b\d\d\d\b', s)
+x = m.group(0) if m else ''"
+"import operator","temp = list(zip(a, b))
+temp.sort(key=operator.itemgetter(0))
+a, b = zip(*work)"
+"for e in x:
+    f(e)","list(map(lambda e: f(e), x))"
+"print(a)"
+"print(m)"
+"print(x)"
+"c = len(set(items))"
+"del_count = 0
+for i in range(len(x)):
+    if not p(x[i - del_count]):
+        del x[i - del_count]
+        del_count += 1"
+"import math","sign = -1 if s else 1
+d = math.ldexp(sign*m,e)"
+"a, b, c = 42, 'hello', 5.0"
+"import random","x = random.choice(list(m.values()))"
+"i = int(s, 2)"
+"x = "a" if condition() else "b""
+"import inspect","for frame in inspect.stack():
+    print(frame)
+"
+"for i, v in enumerate(x):
+  if v == "foo":
+    x[i] = "bar"","x = ["bar" if v=="foo" else v for v in x]"
+"print(x)"
+"for i in range(5, -1, -1):
+    print(i)"
+"for i in range(len(items)-1, -1, -1):
+    print(i, items[i])","for i, x in enumerate(reversed(items)):
+  print(f'{i} {x}')
+"
+"b = [int(elem) for elem in a]"
+"import re","parts = re.split('[,_\-]', s)"
+"items = []"
+"import datetime","d = datetime.datetime.now()
+x = d.strftime('%H:%M:%S')"
+"t = bin(n)[::-1].find('1')"
+"import math","def log2d(n):
+    return math.floor(math.log2(n))
+
+def log2u(n):
+    return math.ceil(math.log2(n))
+
+for n in range(1, 13):
+    print(n, log2d(n), log2u(n))"
+"def foo(a):
+    print(len(a), len(a[0]))
+    return
+
+
+a = [[1,2,3], [4,5,6]]
+foo(a)
+"
+"p = bin(i).count('1') % 2"
+"s = v * n"
+"def foo(x):
+    if isinstance(x, str):
+        print(x)
+    else:
+        print('Nothing.')
+    return
+
+foo('Hello, world!')
+foo(42)
+"
+"class Vector:
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+        return
+
+    def __mul__(self, other):
+        return Vector(self.y * other.z - self.z * other.y,
+                      self.z * other.x - self.x * other.z,
+                      self.x * other.y - self.y * other.x)
+
+result = a * b"
+"e = T.horse
+s = e.name
+print(s)
+"
+"import math","if math.isnan(r1):
+    print('This is a quiet NaN.')
+else:
+    print('This is a number.')
+"
+"def tst(x):
+    if type(x) == foo:
+        print("Same type.")
+    elif isinstance(x, foo):
+        print("Extends type.")
+    else:
+        print("Not related.")"
+"for i in range(1,101):
+    if i % 15 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)","n=1
+while(n<=100):
+    out=""
+    if(n%3==0):
+        out=out+"Fizz"
+    if(n%5==0):
+        out=out+"Buzz"
+    if(out==""):
+        out=out+str(n)
+    print(out)
+    n=n+1","for i in range(100, 1):
+    if i % 5 == 0 and not i % 3 == 0:
+        print (i, "Buzz");
+    if i % 3 == 0 and not i % 5 == 0:
+        print (i, "Fizz");
+    if i % 3 == 0 and i % 5 == 0:
+        print (i, "FizzBuzz");","for i in range(1, 100+1):
+    out = ""
+    if i % 3 == 0:
+        out += "Fizz"
+    if i % 5 == 0:
+        out += "Buzz"
+    print(out or i)"
+"import os","b = os.listdir(p) == []"
+"import re","t = re.sub('\\s', '', s)"
+"n = (len(s) - 1) // 8 + 1
+a = bytearray(n)
+for i in range(n):
+    b = int(s[i * 8:(i + 1) * 8], 2)
+    a[i] = b
+"
+"x.add(e)"
+"x.remove(e)"
+"import sys","line = sys.stdin.readline()"
+"import sys","lines = sys.stdin.readlines()"
+"m = {k:v for k, v in m.items() if p(v)}","for k in list(m):
+    if p(m[k]): m.pop(k)
+"
+"m = dict()
+p = Point(x=42, y=5)
+m[p] = 'Hello'","from collections import namedtuple","Point = namedtuple('Point', 'x y')
+
+p = Point(42, 5)
+
+m = {p: "Hello"}"
+"class Foo:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __hash__(self):
+        return hash((Foo, self.x, self.y))
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
+
+foo = Foo(1, 2)
+m = {foo: 'hello'}"
+"parts = s.split(sep)"
+"a = [0] * n"
+"a = float('nan')
+"
+"for i, c in enumerate(s):
+    print(f'Char {i} is {c}')
+"
+"n = len(s.encode('utf8'))"
+"b = e in x"
+"s = a + b"
+"import functools","items[i:j] = sorted(items[i:j], key=functools.cmp_to_key(c))","items[i:j] = sorted(items[i:j], key=c)"
+"items[i:j] = []","del items[i:j]"
+"print('Hello World and \u4f60\u597d')
+","print('Hello World and 你好')
+"
+"s = []
+s.append(x)
+y = s.pop()"
+"a = [1, 12, 42]
+print(*a, sep=', ')
+"
+"t = T[s]"
+"x2 = z.join(x.rsplit(y, 1))
+"
+"data.sort(key=str.lower)
+"
+"y = x.copy()"
+"# This is a comment"
+"def fib(n):
+    if n < 0:
+        raise ValueError
+    if n < 2:
+        return n
+    return fib(n - 2) + fib(n - 1)
+        "
+"s = f'Our sun has {x} planets'"
+"data = s.encode('utf8')"
+"print(a ** b, a ** n)
+"
+"from itertools import cycle","def xor(data, key):
+	return ''.join(chr(ord(x)^ord(y)) for x,y in zip(data, cycle(key)))"
+"def int_to_base_str(n, b):
+    digits = '0123456789abcdefghijklmnopqrstuvwxyz'
+    s = ''
+    if n == 0: return '0'
+    while n:
+        n, remainder = divmod(n, b)
+        s = digits[remainder] + s
+    return s"
+"import copy","y = copy.deepcopy(x)"
+"import random","a[:] = random.randbytes(len(a))","import random","a = random.randbytes(N)"
+"import copy","y = copy.deepcopy(x)"
+"b = p == q"
+"b = m == n"
+"x[:] = [v] * len(x)"
+"import functools","@functools.lru_cache
+def m(*args):
+    return f(*args)
+
+"
+"c = sum(p(v) for v in x)"
+"import random
+import string","alphanum = string.ascii_letters + string.digits
+s = ''.join(random.choices(alphanum, k=n))"
+"import secrets","x = secrets.choice(range(0, 18))
+","import secrets","x = secrets.randbelow(18)"
+"def g():
+    for i in range(6):
+        yield i"
+"b = s == ''"
+"c = s[i]"
+"old, x = x, new"
+"import requests","response = requests.get(u, headers={'accept-encoding': 'gzip'})
+data = response.content[:]"
+"import requests","c = res.headers['cache-control']"
+"import queue","q = queue.Queue()
+q.put(x)
+q.put(y)
+z = q.get()"
+"import time","t = time.time() * 1000"
+"t = s.lower()"
+"t = s.upper()"

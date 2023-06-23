@@ -1,0 +1,1207 @@
+"System.out.println("Hello World");","System.out.printf("%s", "Hello, World!");"
+"for(int i=0;i<10;i++)
+  System.out.println("Hello");","System.out.print("Hello\n".repeat(10));","for(int count = 1; count < 11; count++) {
+	System.out.printf("%s%n", "Hello");
+}"
+"void finish(String name){
+  System.out.println("My job here is done. Goodbye " + name);
+}","private void methodName() {
+	System.out.println("Hello, World!");
+}","private static void methodName() {
+	System.out.println("Hello, World!");
+}"
+"int square(int x){
+  return x*x;
+}","Function<Integer,Integer> squareFunction = x -> x * x;","private int square(int value) {
+	return value * value;
+}"
+"class Point{
+  double x;
+  double y;
+}","private class Point
+{
+	private final float x;
+	private final float y;
+	
+	public Point(float x, float y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+	
+	public float getX()
+	{
+		return this.x;
+	}
+	
+	public float getY()
+	{
+		return this.y;
+	}
+}","public record Point(double x, double y) { }"
+"for (Item x: items) {
+    doSomething(x);
+}","for(int i=0;i<items.length;i++){
+	doSomething( items[i] );
+}","items.stream().forEach(item -> doSomething(item));","import java.util.List;","for(T item : items) {
+	System.out.println(item);
+}"
+"for (int i = 0; i < items.length; i++) {
+    T x = items[i];
+    System.out.printf("Item %d = %s%n", i, x);
+}","for (int i = 0; i < items.size(); i++) {
+    T x = items.get(i);
+    System.out.printf("Item %d = %s%n", i, x);
+}","import java.util.ArrayList;","int i = 0;
+for(String x : items) {
+	System.out.printf("%d %s%n", i, x);
+	i++;
+}"
+"import java.util.Map;
+import java.util.HashMap;","Map<String,Integer> x = new HashMap<>();
+x.put("one", 1);
+x.put("two", 2);","import java.util.Map;
+import java.util.HashMap;","final Map<String, Integer> x = new HashMap<String, Integer>() {{
+    put("one", 1);
+    put("two", 2);
+    put("three", 3);
+}};"
+"class BinTree<T extends Comparable<T>>{
+   T value;
+   BinTree<T> left;
+   BinTree<T> right;
+}
+","interface Tree<T>{
+    boolean search(T x);
+}
+class Nil<T extends Comparable<? super T>> implements Tree<T>{
+    public boolean search(T x) { return false; }
+}
+class Node<T extends Comparable<? super T>> implements Tree<T> {
+ T item;  Tree<T> left; Tree<T> right;
+ public Node(T i, Tree<T> l, Tree<T> r) {
+     item=i;  left=l;  right=r; }
+ public boolean search(T x) {
+     int cmp = x.compareTo(item);
+     return cmp==0 || (cmp<0 && left.search(x)) || (cmp>0 && right.search(x));
+ }"
+"import java.util.Collections;","Collections.shuffle(x);"
+"x.get((int)(Math.random()*x.size()))","import java.util.concurrent.ThreadLocalRandom;","x.get(ThreadLocalRandom.current().nextInt(0, x.size()))","import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;","if(x != null && x.size() > 0) {
+	Random random = new Random();
+	T item = x.get(random.nextInt(x.size()));
+}"
+"boolean contains(int[] list, int x){
+  for(int y:list)
+    if( y==x )
+      return true;
+  return false;
+}","boolean <T> contains(T[] list, T x){
+  if( x==null){
+    for(T y:list)
+      if( y==null )
+        return true;
+  }else{
+    for(T y:list)
+      if( x.equals(y) )
+        return true;
+  }
+  return false;
+}","import java.util.List;","list.contains(x)"
+"for (Map.Entry<Object, Object> entry : mymap.entrySet()) {
+    Object k = entry.getKey();
+    Object x = entry.getValue();
+    System.out.println("Key=" + k + ", Value=" + x);
+}","import java.util.Map;","mymap.forEach((k,x) -> System.out.println("Key=" + k + ", Value=" + x));","import java.util.Map;","for(Map.Entry<K, V> item : mymap.entrySet()) {
+	K k = item.getKey();
+	V x = item.getValue();
+	System.out.printf("%s, %s%n", k, x);
+}"
+"import java.util.Math;","double pick(double a, double b){
+	return a + (Math.random() * (b-a));
+}","import java.util.Random;","Random random = new Random();
+float value = random.nextFloat(a, b);","import java.util.Random;","Random random = new Random();
+float value = (random.nextFloat() * (b - a)) + a;"
+"import java.util.Random;","int pick(int a, int b){
+	return a + new Random().nextInt(b - a + 1);
+}"
+"void dfs(BinTree bt) {
+	if (bt.left != null) {
+		dfs(bt.left);
+        }
+	f(bt);
+	if (bt.right != null) {
+		dfs(bt.right);
+        }
+}","class BinTree {
+	// ...
+
+	void dfs() {
+		if( left != null )
+			left.dfs();
+		f(this);
+		if( right != null )
+			right.dfs();
+	}
+}","import java.util.function.Consumer;","class BinTree<T> {
+	// ...
+
+	void dfs(Consumer<BinTree<T>> f) {
+		if( left != null )
+			left.dfs(f);
+		f.accept(this);
+		if( right != null )
+			right.dfs(f);
+	}
+}"
+"import java.util.List;
+import java.util.ArrayList;","class Tree<K,V> {
+  K key;
+  V deco;
+  List<Tree<K,V>> children = new ArrayList<>();
+}"
+"import java.util.List;","static <T> void reverse(List<T> x){
+	int n = x.size();
+	for(int i=0;i<n/2;i++){
+		T tmp = x.get(i);
+		x.set(i, x.get(n-i-1));
+		x.set(n-i-1, tmp);
+	}
+}","import java.util.Collections;","Collections.reverse(x);","import java.util.Collections;","Collections.reverse(x);"
+"static class Position{
+	int i;
+	int j;
+}
+
+Position search(int[][] m, int x){
+	for(int i=0;i<m.length;i++)
+		for(int j=0;j<m[i].length;j++)
+			if(m[i][j] == x){
+				Position pos= new Position();
+				pos.i = i;
+				pos.j = j;
+				return pos;
+			}
+	return null;
+}"
+"T tmp = a;
+a = b;
+b = tmp;"
+"int i = Integer.parseInt(s);","int i = new Integer(s).intValue();","Integer i = Integer.valueOf(s, 10);"
+"String s = String.format("%.2f", x);"
+"String s = "ネコ";"
+"https://gist.github.com/f7c174c53efaba4d8575"
+"double[][] x = new double[m][n];"
+"double[][][] x = new double[m][n][p];"
+"import java.util.Arrays;
+import java.util.Comparator;","Arrays.sort(items, new Comparator<Item>(){
+	public int compare(Item a, Item b){
+		return a.p - b.p;
+	}
+});","import java.util.Collections;
+import java.util.Comparator;","Collections.sort(items, new Comparator<Item>(){
+	@Override
+	public int compare(Item a, Item b){
+		return a.p - b.p;
+	}
+});","import java.util.Comparator;","items.stream().sorted(Comparator.comparing(x -> x.p))"
+"import java.util.List;","items.remove(i);"
+"import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;","final ExecutorService executor = Executors.newFixedThreadPool(NB_THREADS);
+for (int i = 1; i <= 1000; i++) {
+  executor.submit(() -> f(i));
+}
+executor.shutdown();"
+"int f(int i) {
+    if (i == 0)
+        return 1;
+    else
+        return i * f(i - 1);
+}"
+"int exp(int x, int n){
+	if(n==0)
+		return 1;
+	if(n==1)
+		return x;
+	if(n%2==0)
+		return exp(x*x, n/2);
+	else
+		return x * exp(x*x, (n-1)/2);
+}"
+"synchronized(lock){
+  x = f(x);
+}"
+"import java.util.Set;
+import java.util.HashSet;","Set<T> x = new HashSet<T>();","import java.util.Set;
+import java.util.HashSet;","Set<T> x = new HashSet<T>();
+x.add(a);
+x.add(b);"
+"public Function<A, C> compose(Function<A, B> f, Function<B, C> g) {
+   return x -> g.apply(f.apply(x));
+}","import java.util.function.Function;","Function<Integer, Integer> addOne = i-> i + 1;
+Function<Integer, String> toString = i-> i.toString();
+Function<Integer, String> printIncremented = toString.compose(addOne);
+"
+"    default <V> Function<V, R> compose(Function<? super V, ? extends T> before) {
+        Objects.requireNonNull(before);
+        return (V v) -> apply(before.apply(v));
+    }
+"
+"import java.util.function.*;","IntBinaryOperator simpleAdd = (a, b) -> a + b;
+IntFunction<IntUnaryOperator> curriedAdd = a -> b -> a + b;
+System.out.println(simpleAdd.applyAsInt(4, 5));
+System.out.println(curriedAdd.apply(4).applyAsInt(5));"
+"String t = s.substring(i,j);
+"
+"boolean ok = s.contains(word);"
+"import java.util.List;","class Graph{
+  List<Vertex> vertices;
+
+  static class Vertex{
+    int id;
+    List<Vertex> neighbours;
+  }
+}","import java.util.Set;","class Graph{
+  Set<Vertex> vertices;
+
+  static class Vertex{
+    int id;
+    Set<Vertex> neighbours;
+  }
+}"
+"String t = new StringBuilder(s).reverse().toString();","String t = "";
+char[] characters = s.toCharArray();
+for(int index = s.length() - 1; index > -1; index--) {
+	t += String.valueOf(characters[index]);
+}"
+"mainloop: for(int v:a){
+	for(int w:b){
+		if(v==w)
+			continue mainloop;
+	}
+	System.out.println(v);
+}"
+"mainloop: for(int i=0;i<m.length;i++)
+	for(int j=0;j<m[i].length;j++)
+		if(m[i][j]<0){
+			System.out.println(m[i][j]);
+			break mainloop;
+		}"
+"import java.util.List;","s.add(i, x);"
+"Thread.sleep(5000);","import java.util.concurrent.TimeUnit;","TimeUnit.SECONDS.sleep(5);"
+"String t = s.substring(0,5);"
+"String t = s;
+if (s.length()>= 5)
+	t = s.substring(s.length()-5);"
+"String s = "This is a very long string which needs \n" +
+           "to wrap across multiple lines because \n" +
+           "otherwise my code is unreadable.";","String s = """
+This is a very long string which needs
+to wrap across multiple lines because
+otherwise my code is unreadable.
+""";","String lineSeparator = System.lineSeparator();
+String s = "line1" + lineSeparator + "line2" + lineSeparator;"
+"String[] chunks = s.split("\\s+");","import java.util.List;
+import java.util.Arrays;","List<String> chunks = Arrays.asList(s.split("\\s+"));"
+"for(;;){
+	// Do something
+}","while(true) {
+	// Do something	
+}"
+"import java.util.Map;","m.containsKey(k)"
+"import java.util.Map;","m.containsValue(v)"
+"String y = String.join(", ", x);","import java.util.ArrayList;","String y = "";
+for(int index = 0; index < x.size(); index++) {
+	if(index != 0) {
+		y += ", ";
+	}
+	y += x.get(index);
+}"
+"int s = 0;
+for (int i : x) {
+  s += i;
+}"
+"String s=((Integer)i).toString();","String s = Integer.toString(i);","String s = String.valueOf(i);","String s = "" + i;","String s = String.format("%d", i);"
+"import java.util.concurrent.*;","class Task implements Runnable {
+	int i;
+	Task(int i) {
+		this.i = i;
+	}
+	@Override
+	public void run() {
+		f(i);
+	}
+}
+
+ExecutorService executor = Executors.newFixedThreadPool(4);
+for (int i = 1; i <= 1000; i++) {
+	Task task = new Task(i);
+	executor.submit(task);
+}
+executor.shutdown();
+executor.awaitTermination(10L, TimeUnit.MINUTES);
+System.out.println("Finished");","import java.util.concurrent.*;","ExecutorService executor = Executors.newFixedThreadPool(4);
+for (int i = 1; i <= 1000; i++) {
+	Task task = new Task(i);
+	executor.submit(() -> f(i));
+}
+executor.awaitTermination(10L, TimeUnit.MINUTES);
+System.out.println("Finished");"
+"import java.util.stream.Collectors;","var y = x.stream().filter(p).collect(Collectors.toList());"
+"import java.nio.file.Files;
+import java.nio.charset.StandardCharsets;","byte[] encoded = Files.readAllBytes(Paths.get(f));
+String lines = new String(encoded, StandardCharsets.UTF_8);"
+"System.err.format("%d is negative\n",x);","System.err.printf("%d is negative", x);"
+"String x = args[0];"
+"import java.time.Instant;","Instant d = Instant.now();
+","long unixEpoch = System.currentTimeMillis();
+String d = String.format("%1$tY-%1$tm-%1$td %1$tI:%1$tM:%1$tS", unixEpoch);","long d = System.currentTimeMillis();"
+"int i = x.indexOf(y);"
+"String x2 = x.replace(y, z);"
+"import java.math.BigInteger;","BigInteger x = new BigInteger("3", 10).pow(247);"
+"import java.text.DecimalFormat;","String s = new DecimalFormat("0.0%").format(x);","String s = String.format("%.1f%%", x * 100f);"
+"import java.math.BigInteger;","BigInteger z = x.pow(n);"
+"import java.math.BigInteger;","static BigInteger binom(int N, int K) {
+    BigInteger ret = BigInteger.ONE;
+    for (int k = 0; k < K; k++) {
+        ret = ret.multiply(BigInteger.valueOf(N-k))
+                 .divide(BigInteger.valueOf(k+1));
+    }
+    return ret;
+}"
+"import java.util.BitSet;","BitSet x = new BitSet(n);"
+"import java.util.Random;","Random r = new Random(s);"
+"import java.util.Random;","Random rand = new Random(System.currentTimeMillis());"
+"import static java.lang.String.join;
+import static java.lang.System.out;","public class Echo {
+    public static void main(final String... args) {
+        out.println(join(" ", args));
+    }
+}"
+"import java.math.BigInteger;","BigInteger x = a.gcd(b);"
+"import java.math.BigInteger;","BigInteger a = new BigInteger("123456789");
+BigInteger b = new BigInteger("987654321");
+BigInteger x = a.multiply(b).divide(a.gcd(b));"
+"String s = Integer.toBinaryString(x);"
+"import org.apache.commons.math4.complex.Complex;","Complex x = new Complex(-2.0, 3.0);
+x = x.multiply(Complex.I);"
+"do {
+	someThing();
+	someOtherThing();
+} while(c);"
+"int x = 10
+float y = (float)x;
+System.out.println(y);","Float y = Float.parseFloat(String.valueOf(x));"
+"int y = (int)x;"
+"long y = Math.round(x);"
+"import org.apache.commons.lang3.StringUtils;","int count = StringUtils.countMatches(s, t);","import java.util.regex.Matcher;
+import java.util.regex.Pattern;","int count = 0;
+Pattern pattern = Pattern.compile(String.format("(%s)", t));
+Matcher matcher = pattern.matcher(s);
+while(matcher.find()) {
+	count++;
+}","import java.util.regex.Matcher;
+import java.util.regex.Pattern;","int count = 0;
+Pattern pattern = Pattern.compile(String.format("(%s)", t), Pattern.CASE_INSENSITIVE);
+Matcher matcher = pattern.matcher(s);
+while(matcher.find()) {
+	count++;
+}"
+"import java.util.regex.Pattern;","Pattern r = Pattern.compile("htt+p");"
+"int c = Integer.bitCount(i);","int c = 0;
+for(char character : Integer.toBinaryString(i).toCharArray()) {
+	if(character == '1') {
+		c++;
+	}
+}"
+"public boolean addingWillOverflow(int x, int y){
+    boolean willOverFlow = false;
+    if(x > 0 && y > 0){
+        if(y > (Integer.MAX_VALUE - x)){
+            willOverFlow = true;
+        }
+    }
+    if(x < 0 && y < 0){
+       if(y < (Integer.MIN_VALUE - x)){
+           willOverFlow = true;
+       }
+    }
+    return willOverFlow;
+}"
+"static boolean multiplyWillOverflow(int x, int y) {
+	return Integer.MAX_VALUE/x < y;
+}"
+"System.exit(0);"
+"byte[] buf = new byte[1000000];","byte[] buf = new byte[1_000_000];"
+"throw new IllegalArgumentException("Invalid value for x:" + x);"
+"public class Foo {
+    private int x;
+
+    public int getX() {
+        return x;
+    }
+}
+"
+"static void control(Runnable f) {
+    f.run();
+}"
+"System.out.println(((Object)x).getClass().getName());","import java.lang.reflect.Modifier;","System.out.print(x.getClass().getName());
+if(x.getClass().getModifiers() == Modifier.STATIC) {
+	System.out.println(" is static");
+} else {
+	System.out.println(" is dynamic");
+}"
+"import java.io.File;","long x = new File(path).length();"
+"boolean b = s.startsWith(prefix);"
+"boolean b = s.endsWith(suffix);"
+"import java.util.Date;","Date d = new Date(ts * 1000);","import java.time.Instant;","Instant d = Instant.ofEpochSecond(ts);","import java.time.LocalDateTime;
+import java.time.ZoneOffset;","LocalDateTime d = LocalDateTime.ofEpochSecond(ts, 0, ZoneOffset.UTC);","long ts = System.currentTimeMillis();
+String d = String.format("%1$tY-%1$tm-%1$td %1$tI:%1$tM:%1$tS", ts);"
+"import java.text.SimpleDateFormat;","String x = new SimpleDateFormat("yyyy-MM-dd").format(d);","String x = String.format("%1$tY-%1$tm-%1$td", d)"
+"import java.util.Arrays;
+import java.util.Comparator;","Arrays.sort(items, c);","import java.util.Collections;
+import java.util.Comparator;","Collections.sort(items, c);"
+"import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;","String s = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
+                .uri(URI.create(u))
+                .GET()
+                .build(), HttpResponse.BodyHandlers.ofString())
+                .body();"
+"String s = System.getProperty("sun.java.command");"
+"String path = this.getClass().getClassLoader().getResource("").getPath();","import java.io.File;","String dir = new File("").getAbsolutePath();","String dir = System.getProperty("user.dir");"
+"import java.lang.reflect.Field;","public class Example
+{
+	public static int x = 1;
+	
+	public static void printFieldX()
+	{
+		for(Field field : Example.class.getFields()) {
+			if(field.getName().equals("x")) {
+				System.out.print(x);
+			}
+		}
+	}
+}"
+"String className = t.getClass().getSimpleName();
+int n = 0;
+if (className.equals("Byte")) {
+	n = 1;
+} else if (className.equals("Short")) {
+	n = 2;
+} else if (className.equals("Integer")) {
+	n = 4;
+} else if (className.equals("Long")) {
+	n = 8;
+} else if (className.equals("Float")) {
+	n = 4;
+} else if (className.equals("Double")) {
+	n = 8;
+} else if (className.equals("Boolean")) {
+	n = 0;
+} else if (className.equals("Character")) {
+	n = 2;
+}"
+"import org.apache.commons.lang3.StringUtils;","boolean blank = StringUtils.isBlank(s);","boolean blank = s==null || s.strip().isEmpty();","boolean blank = s==null || s.isBlank();","boolean blank = s == null || s.equals("") || s.matches("\\s+");"
+"Runtime.getRuntime().exec(new String[]{"x", "a", "b"});"
+"import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;","SortedMap<K, V> mymap = new TreeMap<>();
+...
+for(Map.Entry<K, V> e: mymap.entrySet())
+	System.out.println("Key=" + e.getKey() + ", Value=" + e.getValue());","import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;","List<K> keys = new ArrayList<>(mymap.keySet());
+Collections.sort(keys);
+for(K k: keys)
+	System.out.println("Key=" + k + ", Value=" + mymap.get(k));","import java.util.Map;
+import java.util.TreeMap;","var map = Map.of("a", 1, "d", 4, "c", 3, "b", 2);
+new TreeMap<>(map).entrySet().forEach(System.out::println);","import java.util.Map.Entry;","mymap.entrySet().stream().sorted(Entry.comparingByKey()).forEach(System.out::println);
+"
+"import java.util.Date;","boolean before = (d1.compareTo(d2) == -1);"
+"String s2 = s1.replace(w, "");"
+"int n = x.size();","int n = x.length;"
+"import java.util.HashSet;
+import java.util.List;","Set<T> y = new HashSet<>(x);","import java.util.Set;
+import java.util.HashSet;","Set<T> y = new HashSet<T>(x);"
+"import java.util.HashSet;
+import java.util.List;
+import java.util.Set;","Set<T> uniques = new HashSet<>(x);
+x.clear();
+x.addAll(uniques);","import java.util.HashSet;
+import java.util.ArrayList;","x = new ArrayList<T>(new HashSet<T>(x));","import java.util.HashSet;
+import java.util.Iterator;","final HashSet<T> seen = new HashSet<T>();
+final Iterator<T> listIt = x.iterator();
+while (listIt.hasNext()) {
+  final T curr = listIt.next();
+  if (seen.contains(curr)) {
+    listIt.remove();
+  } else {
+    seen.add(curr);
+  }
+}"
+"import java.util.Scanner;","Scanner in = new Scanner(System.in);
+n = in.nextInt();","import java.util.Scanner;","Scanner in = new Scanner(System.in);
+int n = in.nextInt();"
+"import java.net.DatagramSocket;
+import java.net.DatagramPacket;","int len = 1024;
+int p = 8888;
+byte[] b = new byte[len];
+try (DatagramSocket socket = new DatagramSocket(p)) {
+  DatagramPacket packet = new DatagramPacket(b, len);
+  socket.receive(packet);
+}"
+"enum Suit{
+  SPADES,
+  HEARTS,
+  DIAMONDS,
+  CLUBS;
+}"
+"assert isConsistent() : "State consistency violated";"
+"import java.util.arrays;","static int binarySearch(final int[] arr, final int key) {
+    final int index = Arrays.binarySearch(arr, key);
+    return index < 0 ? - 1 : index;
+}"
+"long t = System.nanoTime();
+foo();
+t = System.nanoTime() - t;
+System.out.println(t + "ns");"
+"static Object[] returnAnything() {
+    return new Object[]{"a string", true};
+}
+
+public static void main (String[] args) {
+    Object[] array = returnAnything();
+    System.out.println(array[0]);
+    System.out.println(array[1]);
+}","private static class Tuple<S, B>
+{
+	private S s;
+	private B b;
+	
+	public Tuple(S s, B b)
+	{
+		this.setS(s);
+		this.setB(b);
+	}
+	
+	public void setS(S s)
+	{
+		this.s = s;
+	}
+	
+	public void setB(B b)
+	{
+		this.b = b;
+	}
+	
+	public S getS()
+	{
+		return s;
+	}
+	
+	public B getB()
+	{
+		return b;
+	}
+}
+
+private static Tuple foo()
+{
+	return new Tuple<String, Boolean>("value", true);
+}"
+"import java.util.LinkedList;
+import java.util.Queue;
+import java.util.function.Consumer;","static void breadthFirstSearch(Node root, Consumer<Node> f) {
+    Queue<Node> queue = new LinkedList<>();
+    queue.offer(root);
+
+    while(!queue.isEmpty()) {
+        Node polled = queue.poll();
+        f.accept(polled);
+        polled.children.forEach(a -> queue.offer(a));
+    }
+}
+     "
+"if (c1) {
+   f1();
+} else if (c2) {
+   f2();
+} else if (c3) { 
+   f3();
+}"
+"long clock(Runnable f) {
+    long t0 = System.currentTimeMillis();
+    f.run();
+    long t1 = System.currentTimeMillis();
+    return t1 - t0;
+}"
+"ok = s.toLowerCase().contains(word.toLowerCase());"
+"import java.util.List;
+import java.util.ArrayList;","List<T> items = new ArrayList<>();
+items.add(a);
+items.add(b);
+items.add(c);","import java.util.List;
+import java.util.Arrays;","List<T> items = Arrays.asList(a, b, c);","import java.util.List;","var items = List.of(a, b, c);"
+"import java.util.List;","items.stream().findFirst().filter(item -> "x".equals(item)).ifPresent(removeIndex -> items.remove(removeIndex));","import java.util.ArrayList;","T value;
+for(int index = 0; index < items.size(); index++) {
+	value = items.get(index);
+	if(value.equals(x)) {
+		items.remove(index);
+		break;
+	}
+}"
+"import java.util.Collections;","items.removeAll(Collections.singleton(x));"
+"boolean b = s.matches("[0-9]*");","boolean b = s.matches("[0-9]+");"
+"import java.io.File;","File tempFile = File.createTempFile("prefix-", "-suffix");
+tempFile.deleteOnExit();"
+"import java.io.File;","File folder = new File("/path/");
+folder.deleteOnExit();"
+"map.remove(k);"
+"items1.forEach(System.out::println);
+items2.forEach(System.out::println);","for (T item : items1) {
+	System.out.println(item);
+}
+for (T item : items2) {
+	System.out.println(item);
+}","import java.util.stream.Stream;","Stream.concat(
+	items1.stream(), 
+	items2.stream()
+).forEach(System.out::println);"
+"String s = Integer.toHexString(x);","String s = String.format("%02x", x);"
+"import java.util.Iterator;","Iterator<String> iter1 = items1.iterator();
+Iterator<String> iter2 = items2.iterator();
+while (iter1.hasNext() || iter2.hasNext()) {
+	if (iter1.hasNext()) {
+		System.out.println(iter1.next());
+	}
+	if (iter2.hasNext()) {
+		System.out.println(iter2.next());
+	}
+}","import java.util.stream.IntStream;
+import java.util.stream.Stream;","IntStream.range(0, Math.max(items1.size(), items2.size()))
+	.boxed()
+	.flatMap(idx -> Stream.of(
+		items1.size() > idx ? items1.get(idx) : null,
+		items2.size() > idx ? items2.get(idx) : null
+	))
+	.filter(Objects::nonNull)
+	.forEach(System.out::println);","import java.util.ArrayList;","int index = 0;
+String value1 = null;
+String value2 = null;
+while(index < items1.size() && index < items2.size()) {
+	if(index < items1.size()) {
+		value1 = items1.get(index);
+	}
+	if(index < items2.size()) {
+		value2 = items2.get(index);
+	}
+	System.out.printf("%s, %s%n", value1, value2);
+	index++;
+}"
+"import java.io.File;","boolean b = new File(fb).exists();"
+"import java.util.logging.Logger;","Logger LOGGER = Logger.getLogger(MyClass.class.getName());
+
+LOGGER.info(msg);","long unixEpoch = System.currentTimeMillis();
+String dateAndTime = String.format("%1$tY-%1$tm-%1$td %1$tI:%1$tM:%1$tS", unixEpoch);
+System.out.printf("%s: %s%n", dateAndTime, msg);
+System.err.printf("%s: %s%n", dateAndTime, msg);"
+"double f = Double.parseDouble(s);
+","Float f = Float.valueOf(s);","Double f = Double.valueOf(s);"
+"String t = s.replaceAll("[^\\x00-\\x7F]", "");"
+"import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;","List<Integer> list = new ArrayList<>();
+Scanner in = new Scanner(System.in);
+while(in.hasNext())
+    list.add(in.nextInt());"
+" "
+"if (p.endsWith("/")) {
+    p = p.substring(0, p.length() - 1);
+}","p = p.replaceAll("/$", "");"
+"String s = String.valueOf(c);","String s = Character.toString(c);","String s = c + "";","String s = = new Character(c).toString();","String s = String.format("%s", c);"
+"String t = s + i;","String t = String.format("%s%d", s, i);"
+"String r1 = c1.substring(1,3);
+String g1 = c1.substring(3,5);
+String b1 = c1.substring(5,7);
+
+String r2 = c2.substring(1,3);
+String g2 = c2.substring(3,5);
+String b2 = c2.substring(5,7);
+
+String r = String.format("%02X", (Integer.parseInt(r1, 16)+Integer.parseInt(r2, 16))/2 );
+String g = String.format("%02X", (Integer.parseInt(g1, 16)+Integer.parseInt(g2, 16))/2 );
+String b = String.format("%02X", (Integer.parseInt(b1, 16)+Integer.parseInt(b2, 16))/2 );
+
+String c = "#" + r + g + b;","StringBuilder sb = new StringBuilder("#");
+for(int i=0;i<3;i++) {
+  String sub1 = c1.substring(1+2*i,3+2*i);
+  String sub2 = c2.substring(1+2*i,3+2*i);
+  int v1 = Integer.parseInt(sub1, 16);
+  int v2 = Integer.parseInt(sub2, 16);
+  int v = (v1 + v2)/2;
+  String sub = String.format("%02X", v);
+  sb.append(sub);
+}
+String c = sb.toString();","String c1 = "#152a3e";
+String c2 = "#005867";
+int cx = Integer.parseInt(c1.substring(1), 16);
+int cy = Integer.parseInt(c2.substring(1), 16);
+int r1 = (cx & 0xff_00_00) >> 16;
+int g1 = (cx & 0x00_ff_00) >> 8;
+int b1 = (cx & 0x00_00_ff);
+int r2 = (cy & 0xff_00_00) >> 16;
+int g2 = (cy & 0x00_ff_00) >> 8;
+int b2 = (cy & 0x00_00_ff);
+int r = (r1 + r2) / 2;
+int g = (g1 + g2) / 2;
+int b = (b1 + b2) / 2;
+String c = String.format("#%02x%02x%02x", r, g, b);"
+"import java.io.File;","new File(filepath).delete();"
+"String s = String.format("%03d", i);"
+"static final String planet = "Earth";","final String planet = "Earth";","private final String planet = "Earth";"
+"import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;","public static <T> List<T> randomSublist(List<T> x, int k) {
+	List<T> y = new ArrayList<>(x);
+	Collections.shuffle(y);
+	return y.subList(0, k);
+}"
+"switch(System.getProperty("sun.arch.data.model")) {
+  case "64": 
+    f64(); 
+    break;
+  case "32":
+    f32();
+    break;
+}"
+"import java.util.stream.Collectors;","elements = elements.stream().map(e -> e*c).collect(Collectors.toList());"
+"import java.util.Set;","var argsSet = Set.of(args);
+if (argsSet.contains("b")) bat();
+if (argsSet.contains("f")) fox();"
+"for(int i = 0; i < list.length; i += 2) {
+  System.out.println(list[i] + ", " + list[i + 1]);
+}","import java.util.ArrayList;","for(int index1 = 0, index2 = 1; index2 < list.size(); index1++, index2 = index1 + 1) {
+	System.out.printf("%s, %s%n", list.get(index1), list.get(index2));
+}"
+"int x = items[items.length - 1];"
+"var ab = new ArrayList<>(a);
+ab.addAll(b);"
+"String t = s.replaceFirst("^" + p, "");"
+"String t = s;
+int index = s.lastIndexOf(w);
+if (index + w.length() == s.length()) {
+    t = s.substring(0, index);
+}"
+"int n = s.length();"
+"int n = mymap.size();"
+"s.add(x);"
+"m.put(k, v);"
+"String.format("%,d", 1000000);","import java.text.DecimalFormat;","DecimalFormat decimalFormat = new DecimalFormat("#,###");
+String formattedString = decimalFormat.format(1000000);"
+"import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;","String s = HttpClient.newHttpClient().send(HttpRequest.newBuilder()
+                        .uri(URI.create(u))
+                        .POST(HttpRequest.BodyPublishers.ofString(content))
+                        .build(), HttpResponse.BodyHandlers.ofString())
+                .body();"
+"String s = "";
+for(byte value : a) {
+	s += String.format("%02x", value);
+}"
+"import java.math.BigInteger;","byte[] a = new BigInteger(s, 16).toByteArray();"
+"import java.io.File;
+import java.util.ArrayList;","public static ArrayList<String> findFiles(String D)
+{
+	File fileDirectory = new File(D);
+	ArrayList<String> L = new ArrayList<>();
+	
+	String fileName = null;
+	for(File file : fileDirectory.listFiles()) {
+		fileName = file.getName();
+		if(fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png")) {
+			L.add(fileName);
+		}
+	}
+	
+	return L;
+}"
+"boolean b = x <= x2 && x >= x1 && y <= y2 && y >= y1;"
+"double[] c = {(x1+x2)/2,(y1+y2)/2};"
+"import java.io.File;","final File directory = new File(d);
+final File[] x = directory.listFiles();","import java.util.ArrayList;
+import java.util.Arrays;","ArrayList<File> x = (ArrayList<File>) Arrays.asList(new File(d).listFiles());"
+"import java.time.LocalDate;","String t = LocalDate.now().plusDays(1).toString();"
+"import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;","ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+executorService.schedule(() -> _f(42), delayInSeconds, TimeUnit.SECONDS);"
+"System.exit(0);"
+"public class DisjointSetElement {
+  private DisjointSetElement representative = this;
+
+  public DisjointSetElement getRepresentative() {
+    if (representative != this) {
+      representative = representative.getRepresentative();
+    }
+    return representative;
+  }
+
+  public void union(DisjointSetElement other) {
+    other.getRepresentative().representative = getRepresentative();
+  }
+}
+  "
+"import java.util.stream.Collectors;","x.stream().filter(P).map(T).collect(Collectors.toList());"
+"for(int i = 0; i<a.length;i++) {
+	if(a[i]>x) {
+		f();
+		break;
+	}
+}","for(int value : a) {
+	if(value > x) {
+		f();
+		break;
+	}
+}"
+"public static void foo(int[][] a){
+       System.out.println("Array a has a size of " + a.length+" by " + a[0].length);
+       int sum = 0;
+       for (int i = 0; i<a.length; i++){
+           for (int j = 0; j<a[0].length; j++){
+               sum += ((i+1)*(j+1)*a[i][j]);
+           }
+       }
+       System.out.println("The sum of all elements multiplied by their indices is: " + sum);
+    }"
+"import java.io.File;
+import java.nio.file.Files;
+import java.util.List;","List<String> lines = Files.readAllLines(new File(path).toPath());","import java.io.File;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.stream.Collectors;","String text = Files.readString(new File(path).toPath());
+List<String> lines = text.lines().collect(Collectors.toList());"
+"System.exit(x);"
+"return double h = Math.sqrt(Math.pow(x,2)+Math.pow(y,2));"
+"double n = 0d;
+for(double value : data) {
+	n += value * value;
+}
+n = Math.sqrt(n);"
+"import java.util.Arrays;","double s = Arrays.stream(data).map(i -> i * i).sum();"
+"String foo = System.getenv("foo");
+if (foo == null) {
+	foo = "none";
+}"
+"switch (str){
+	case "bar":
+            bar();
+            break;
+        case "baz":
+            baz();
+            break;
+        case "foo":
+            foo();
+            break;
+        case "barfl":
+            barfl();
+            break;
+        default:
+            somethingElse();
+    }"
+"import java.io.File;","boolean ok = new File(path).mkdirs();"
+"if(s.length() < m)
+    s = String.valueOf(c).repeat(m - s.length()) + s;"
+"if(s.length() < m) {
+    String x = String.valueOf(c).repeat(m - s.length());
+    s = x.substring(0, x.length() / 2) + s + x.substring(x.length() / 2);
+}"
+"String t = s.replaceAll(" +", " ");","String t = s.replaceAll("\\s+", " ");"
+"record Tuple(int a, String b, boolean c) {}
+var t = new Tuple(1, "hello", true);"
+"StringBuilder tb = new StringBuilder();
+for (int i=0; i<s.length(); i++){
+    if(Character.isDigit(s.charAt(i)))
+        tb.append(s.charAt(i));
+}
+String t = tb.toString();","String t = s.replaceAll("[^0-9]+, "");"
+"int i = -1;
+for(int j=0;j<items.length;j++){
+	if(items[j].equals(x)){
+		i = j;
+		break;
+	}
+}","int i = items.indexOf​(x);"
+"boolean b = false;
+for (int i = 0; i<items.length; i++) {
+	if (items[i] == something) {
+		doSomething();
+		b = true;
+	}
+}
+if (!b)
+	doSomethingElse();","Predicate<Item> condition;
+items.stream()
+	.filter(condition)
+	.findFirst()
+	.ifPresentOrElse(
+		item -> doSomething(i),
+		() -> doSomethingElse());"
+"items.add(0, x);"
+"private void f(Integer x) {
+    if (x != null) {
+        System.out.println("Present " + x);
+    } else {
+        System.out.println("Not present");
+    }
+}"
+"import java.util.List;","items.remove(items.size() - 1);"
+"import java.util.ArrayList;","ArrayList<String> y = new ArrayList<>(x);"
+"import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;","Files.copy(Path.of(src), Path.of(dst));"
+"import java.util.Base64;","byte[] data = Base64.getDecoder().decode(s);"
+"int c = a ^ b;"
+"byte[] c = new byte[a.length];
+for (int i = 0; i < a.length; i++) {
+  c[i] = (byte) (a[i] ^ b[i]);
+}"
+"import java.util.regex.Matcher;
+import java.util.regex.Pattern;","Pattern pattern = Pattern.compile("((?<!\\d)\\d{3}(?!\\d))");
+Matcher matcher = pattern.matcher(s);
+String x = "";
+matcher.find();
+x = matcher.group(1);"
+"Thread.yield();
+busywork();"
+"import java.util.Set;","for(T e: x) {
+  f(e);
+}"
+"import java.util.List;","System.out.println(a);","import java.util.Arrays;","System.out.println(Arrays.toString(a));"
+"import java.util.Map;","System.out.println(m);"
+"long c = items.stream().distinct().count();"
+"x.removeIf(p.negate());"
+"import java.math.BigInteger;","int i = new BigInteger(s, 2).intValue();","Integer i = Integer.valueOf(s, 2);"
+"x = condition() ? "a" : "b";"
+"for(StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
+	System.out.println(stackTraceElement.toString());
+}"
+"import java.util.stream.Collectors;","x = x.stream()
+     .map(s -> s.equals("foo") ? "bar" : s)
+     .collect(Collectors.toList());"
+"System.out.println(x);"
+"for(int i=5 ; i>=0 ; i--) {
+    System.out.println(i);
+}"
+"for(int i = items.length-1;i>=0;i--){
+	System.out.println("Index:"+ i +", Value:" + items[i]); 
+}","import java.util.ArrayList;
+import java.util.Collections;","Collections.reverse(items);
+int i = 0;
+for(T x : items) {
+	System.out.printf("%d %s%n", i, x);
+	i++;
+}"
+"import java.util.List;
+import java.util.stream.Collectors;","List<Integer> b = items.stream()
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());","import java.util.ArrayList;","ArrayList<Integer> b = new ArrayList<>();
+for(String value : a) {
+	b.add(Integer.parseInt(value));
+}"
+"import java.util.*;","List<String> list = new ArrayList<>();"
+"import java.util.regex.Matcher;
+import java.util.regex.Pattern;","Pattern pattern = Pattern.compile("(0+)$");
+Matcher matcher = pattern.matcher(Integer.toBinaryString(n));
+int t = 0;
+if(matcher.find()) {
+	t = matcher.group(1).length();
+}","Integer t = Integer.numberOfTrailingZeros(n);"
+"int p = Integer.bitCount(i) % 2;"
+"for (int i=0;i<n;i++){
+          s = s+v;
+      }
+System.out.println(s);","String s = v.repeat(n);
+
+System.out.println(s);"
+"    public static void main(String[] args) {
+        foo("Hello, world!");
+        foo(42);
+    }
+
+    private static void foo(Object x) {
+        if (x instanceof String) {
+            System.out.println(x);
+        } else {
+            System.out.println("Nothing.");
+        }
+    }"
+"var e = T.HORSE;
+var s = e.name();
+System.out.println(s);"
+"for (int i = 1; i <= 100; i++){
+	if (i % 15 == 0)
+	  System.out.println ("FizzBuzz");
+	else if (i % 3 == 0)
+	  System.out.println ("Fizz");
+	else if (i % 5 == 0)
+	  System.out.println ("Buzz");
+	else
+	  System.out.println (i);
+      }"
+"String t = s.replaceAll("\\s+", "");"
+"short[] a = new short[s.length() / 8];
+for(int index1 = 0, index2 = 0; index1 < a.length; index1++, index2 += 8) {
+	a[index1] = Short.valueOf(s.substring(index2, index2 + 8), 2);
+}"
+"import java.util.Set;","x.add(e)"
+"import java.util.Set;","x.remove(e);"
+"import java.util.Scanner;","String line = null;
+Scanner in = new Scanner(System.in);
+if(in.hasNextLine())
+    line = in.nextLine();","import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;","InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+String line = null;
+try {
+	line = bufferedReader.readLine();
+} catch (IOException exception) {
+	exception.printStackTrace();
+} finally {
+	try {
+		bufferedReader.close();
+	} catch(IOException exception) {
+		exception.printStackTrace();
+	}
+}"
+"import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;","List<String> lines = new ArrayList<>();
+Scanner in = new Scanner(System.in);
+while(in.hasNextLine())
+    lines.add(in.nextLine());"
+"import java.util.HashMap;
+import java.util.Map;","Map<Point, String> m = new HashMap<>();
+m.put(new Point(42, 5), "Hello");"
+"int[] a = new int[n];
+","import java.util.stream.IntStream;","int[] a = IntStream.generate(() -> 0)
+                .limit(n)
+                .toArray();","import java.util.*;","List<Integer> a = new ArrayList<Integer>(n);
+for (int i =0;i<n;i++){
+    a.add(0);
+}"
+"import java.util.concurrent.atomic.AtomicInteger;","AtomicInteger i = new AtomicInteger(0);
+s.chars().forEach(v -> {
+  char c = (char)v;
+  System.out.println("Char " + i.getAndIncrement() + " is " + c); 
+});","for(int i=0; i<s.length(); i++) {
+  char c = s.charAt(i);
+  System.out.println("Char " + i + " is " + c); 
+}","int i = 0;
+for(char c : s.toCharArray()) {
+	System.out.printf("Char %d is %c%n", i, c);
+	i++;
+}"
+"boolean b = x.contains(e);"
+"String s = a.concat(b);","String s = a + b;","String s = String.format("%s%s", a, b);"
+"import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;","Comparator<T> c = new Comparator<T>()
+{
+	@Override
+	public int compare(T o1, T o2)
+	{
+		if(o1 > o2) {
+			return 1;
+		} else if(o1 == o2) {
+			return 0;
+		} else {
+			return -1;
+		}
+	}
+};
+Collections.sort(items.subList(i, j), c);"
+"import java.util.ArrayList;","for(int index = i; index < j; index++) {
+	items.remove(index);
+}"
+"import java.util.Stack;","Stack<T> s = new Stack<>();
+s.push(x);
+T y = s.pop();"
+"int[] a = new int[] { 1, 12, 42 };
+for(int index = 0; index < a.length; index++) {
+	if(index != 0) {
+		System.out.print(", ");
+	}
+	System.out.print(a[index]);
+}"
+"T x = T.valueOf(s);"
+"import java.util.ArrayList;
+import java.util.Comparator;","data.sort(new Comparator<String>()
+{
+	@Override
+	public int compare(String o1, String o2)
+	{
+		return o1.compareToIgnoreCase(o2);
+	}
+	
+});"
+"import java.util.Map;","Map<K, V> y = x;"
+"// This is a comment"
+"String s = String.format("Our sun has %s planets", x);"
+"int[] a = new int[6];
+for(int value = 42, index = 0; value < 48; value++, index++) {
+	a[index] = value;
+}"
+"String s = Integer.toString(n, b);"
+"int[][] y = new int[x.length][];
+for(int index1 = 0; index1 < x.length; index1++) {
+	y[index1] = new int[x[index1].length];
+	for(int index2 = 0; index2 < x[index1].length; index2++) {
+		y[index1][index2] = x[index1][index2];
+	}
+}"
+"import java.util.Random;","new Random().nextBytes(a);"
+"import java.util.ArrayList;","boolean b = p.size() == q.size();
+
+if(b) {
+	for(T item : p) {
+		if(q.contains(item) == false) {
+			b = false;
+			break;
+		}
+	}
+	
+	if(b) {
+		for(T item : q) {
+			if(p.contains(item) == false) {
+				b = false;
+				break;
+			}
+		}
+	}
+}"
+"import java.util.ArrayList;
+import java.util.Collections;","int c = Collections.frequency(x, p);"
+"import java.util.Random;","public static String generateValues(int n)
+{
+	String alphabet1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	String alphabet2 = "abcdefghijklmnopqrstuvwxyz";
+	String digits = "0123456789";
+	String values = alphabet1 + alphabet2 + digits;
+		
+	Random random = new Random(1);
+	String s = "";
+	for(int count = 0; count < n; count++) {
+		s += String.valueOf(values.charAt(random.nextInt(values.length())));
+	}
+	
+	return s;
+}"
+"boolean b = s.equals("");"
+"char c = s.charAt(i);"

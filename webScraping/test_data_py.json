@@ -1,0 +1,208 @@
+{
+    "test_data": [
+      {
+        "code_sample": "nums = [1, 2, 3, 4, 5]\nfor i in range(len(nums)):\n    print(nums[i])",
+        "expected_suggestion": "# Better idiomatic way\nnums = [1, 2, 3, 4, 5]\nfor num in nums:\n    print(num)"
+      },
+      {
+        "code_sample": "fruits = ['apple', 'banana', 'orange']\nfor i in range(len(fruits)):\n    print(fruits[i])",
+        "expected_suggestion": "# Better idiomatic way\nfruits = ['apple', 'banana', 'orange']\nfor fruit in fruits:\n    print(fruit)"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\nsquares = []\nfor i in range(len(numbers)):\n    squares.append(numbers[i] ** 2)",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\nsquares = [num ** 2 for num in numbers]"
+      },
+      {
+        "code_sample": "def get_sum(x, y):\n    sum = x + y\n    return sum",
+        "expected_suggestion": "# Better idiomatic way\ndef get_sum(x, y):\n    return x + y"
+      },
+      {
+        "code_sample": "if condition == True:\n    # do something",
+        "expected_suggestion": "# Better idiomatic way\nif condition:\n    # do something"
+      },
+      {
+        "code_sample": "for i in range(10):\n    if i % 2 == 0:\n        print(i)",
+        "expected_suggestion": "# Better idiomatic way\nfor i in range(0, 10, 2):\n    print(i)"
+      },
+      {
+        "code_sample": "my_list = ['apple', 'banana', 'orange']\nindex = 0\nfor item in my_list:\n    print(f'Item {index}: {item}')\n    index += 1",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = ['apple', 'banana', 'orange']\nfor index, item in enumerate(my_list):\n    print(f'Item {index}: {item}')"
+      },
+      {
+        "code_sample": "result = 0\nfor i in range(10):\n    result += i\nprint(result)",
+        "expected_suggestion": "# Better idiomatic way\nresult = sum(range(10))\nprint(result)"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\nif len(numbers) > 0:\n    print('List is not empty')",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\nif numbers:\n    print('List is not empty')"
+      },
+      {
+        "code_sample": "for i in range(5):\n    print(i)\n    i = i + 1",
+        "expected_suggestion": "# Better idiomatic way\nfor i in range(5):\n    print(i)"
+      },
+      {
+        "code_sample": "my_string = 'Hello, World!'\nchar_list = []\nfor char in my_string:\n    char_list.append(char)\nprint(char_list)",
+        "expected_suggestion": "# Better idiomatic way\nmy_string = 'Hello, World!'\nchar_list = list(my_string)\nprint(char_list)"
+      },
+      {
+        "code_sample": "def is_even(num):\n    if num % 2 == 0:\n        return True\n    else:\n        return False",
+        "expected_suggestion": "# Better idiomatic way\ndef is_even(num):\n    return num % 2 == 0"
+      },
+      {
+        "code_sample": "my_dict = {'a': 1, 'b': 2, 'c': 3}\nfor key in my_dict.keys():\n    print(key, my_dict[key])",
+        "expected_suggestion": "# Better idiomatic way\nmy_dict = {'a': 1, 'b': 2, 'c': 3}\nfor key, value in my_dict.items():\n    print(key, value)"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nreversed_list = []\nfor i in range(len(my_list)-1, -1, -1):\n    reversed_list.append(my_list[i])",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nreversed_list = list(reversed(my_list))"
+      },
+      {
+        "code_sample": "names = ['Alice', 'Bob', 'Charlie']\nname_lengths = []\nfor name in names:\n    name_lengths.append(len(name))",
+        "expected_suggestion": "# Better idiomatic way\nnames = ['Alice', 'Bob', 'Charlie']\nname_lengths = [len(name) for name in names]"
+      },
+      {
+        "code_sample": "def is_palindrome(word):\n    reversed_word = ''\n    for char in word:\n        reversed_word = char + reversed_word\n    return word == reversed_word",
+        "expected_suggestion": "# Better idiomatic way\ndef is_palindrome(word):\n    return word == word[::-1]"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\neven_numbers = []\nfor num in numbers:\n    if num % 2 == 0:\n        even_numbers.append(num)",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\neven_numbers = [num for num in numbers if num % 2 == 0]"
+      },
+      {
+        "code_sample": "def greet(name):\n    if name:\n        print('Hello, ' + name)\n    else:\n        print('Hello, Stranger')",
+        "expected_suggestion": "# Better idiomatic way\ndef greet(name):\n    print('Hello, ' + (name or 'Stranger'))"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nsum = 0\nfor num in my_list:\n    sum += num",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nsum = sum(my_list)"
+      },
+      {
+        "code_sample": "def is_prime(num):\n    if num < 2:\n        return False\n    for i in range(2, num):\n        if num % i == 0:\n            return False\n    return True",
+        "expected_suggestion": "# Better idiomatic way\ndef is_prime(num):\n    return num > 1 and all(num % i != 0 for i in range(2, int(num**0.5)+1))"
+      },
+      {
+        "code_sample": "my_string = 'Hello, World!'\nuppercased = []\nfor char in my_string:\n    uppercased.append(char.upper())",
+        "expected_suggestion": "# Better idiomatic way\nmy_string = 'Hello, World!'\nuppercased = [char.upper() for char in my_string]"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\nif len(numbers) == 0:\n    print('List is empty')",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\nif not numbers:\n    print('List is empty')"
+      },
+      {
+        "code_sample": "def square(num):\n    return num ** 2\n\nsquared_nums = []\nfor i in range(5):\n    squared_nums.append(square(i))",
+        "expected_suggestion": "# Better idiomatic way\ndef square(num):\n    return num ** 2\n\nsquared_nums = [square(i) for i in range(5)]"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list)):\n    if my_list[i] == 3:\n        print('Found at index', i)",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nfor i, num in enumerate(my_list):\n    if num == 3:\n        print('Found at index', i)"
+      },
+      {
+        "code_sample": "def multiply_by_two(num):\n    return num * 2\n\nnumbers = [1, 2, 3, 4, 5]\ndoubled_numbers = []\nfor num in numbers:\n    doubled_numbers.append(multiply_by_two(num))",
+        "expected_suggestion": "# Better idiomatic way\ndef multiply_by_two(num):\n    return num * 2\n\nnumbers = [1, 2, 3, 4, 5]\ndoubled_numbers = [multiply_by_two(num) for num in numbers]"
+      },
+      {
+        "code_sample": "for i in range(1, 6):\n    print('*' * i)",
+        "expected_suggestion": "# Better idiomatic way\nfor i in range(1, 6):\n    print('*' * i)"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list)):\n    if my_list[i] % 2 == 0:\n        my_list[i] = my_list[i] * 2",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nmy_list = [num * 2 if num % 2 == 0 else num for num in my_list]"
+      },
+      {
+        "code_sample": "def greet(name):\n    if name:\n        print('Hello, ' + name)\n    else:\n        print('Hello, World!')",
+        "expected_suggestion": "# Better idiomatic way\ndef greet(name=None):\n    print('Hello, ' + (name or 'World!'))"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\nfor i in range(len(numbers)):\n    numbers[i] = numbers[i] * 2",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\nnumbers = [num * 2 for num in numbers]"
+      },
+      {
+        "code_sample": "def is_odd(num):\n    if num % 2 == 1:\n        return True\n    else:\n        return False",
+        "expected_suggestion": "# Better idiomatic way\ndef is_odd(num):\n    return num % 2 == 1"
+      },
+      {
+        "code_sample": "def get_square(num):\n    return num ** 2\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = []\nfor num in numbers:\n    squared_numbers.append(get_square(num))",
+        "expected_suggestion": "# Better idiomatic way\ndef get_square(num):\n    return num ** 2\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = [get_square(num) for num in numbers]"
+      },
+      {
+        "code_sample": "my_string = 'Hello, World!'\nlowercased = []\nfor char in my_string:\n    lowercased.append(char.lower())",
+        "expected_suggestion": "# Better idiomatic way\nmy_string = 'Hello, World!'\nlowercased = [char.lower() for char in my_string]"
+      },
+      {
+        "code_sample": "def get_max(numbers):\n    max_num = numbers[0]\n    for num in numbers:\n        if num > max_num:\n            max_num = num\n    return max_num",
+        "expected_suggestion": "# Better idiomatic way\ndef get_max(numbers):\n    return max(numbers)"
+      },
+      {
+        "code_sample": "for i in range(1, 6):\n    print(' ' * (5 - i) + '*' * i)",
+        "expected_suggestion": "# Better idiomatic way\nfor i in range(1, 6):\n    print(' ' * (5 - i) + '*' * i)"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list)):\n    if my_list[i] % 2 == 1:\n        my_list[i] = my_list[i] * 2",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nmy_list = [num * 2 if num % 2 == 1 else num for num in my_list]"
+      },
+      {
+        "code_sample": "def is_vowel(char):\n    if char.lower() in ['a', 'e', 'i', 'o', 'u']:\n        return True\n    else:\n        return False",
+        "expected_suggestion": "# Better idiomatic way\ndef is_vowel(char):\n    return char.lower() in ['a', 'e', 'i', 'o', 'u']"
+      },
+      {
+        "code_sample": "def get_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    average = total / len(numbers)\n    return average",
+        "expected_suggestion": "# Better idiomatic way\ndef get_average(numbers):\n    return sum(numbers) / len(numbers)"
+      },
+      {
+        "code_sample": "def factorial(n):\n    result = 1\n    for i in range(1, n+1):\n        result *= i\n    return result",
+        "expected_suggestion": "# Better idiomatic way\ndef factorial(n):\n    return math.factorial(n)"
+      },
+      {
+        "code_sample": "def is_divisible_by_3_or_5(num):\n    if num % 3 == 0 or num % 5 == 0:\n        return True\n    else:\n        return False",
+        "expected_suggestion": "# Better idiomatic way\ndef is_divisible_by_3_or_5(num):\n    return num % 3 == 0 or num % 5 == 0"
+      },
+      {
+        "code_sample": "def get_even_numbers(numbers):\n    even_numbers = []\n    for num in numbers:\n        if num % 2 == 0:\n            even_numbers.append(num)\n    return even_numbers",
+        "expected_suggestion": "# Better idiomatic way\ndef get_even_numbers(numbers):\n    return [num for num in numbers if num % 2 == 0]"
+      },
+      {
+        "code_sample": "def greet(who):\n    if who is None:\n        print('Hello, World!')\n    else:\n        print('Hello, ' + who)",
+        "expected_suggestion": "# Better idiomatic way\ndef greet(who=None):\n    print('Hello, ' + (who or 'World!'))"
+      },
+      {
+        "code_sample": "def get_power_of_two(exponent):\n    power = 1\n    for _ in range(exponent):\n        power *= 2\n    return power",
+        "expected_suggestion": "# Better idiomatic way\ndef get_power_of_two(exponent):\n    return 2 ** exponent"
+      },
+      {
+        "code_sample": "numbers = [1, 2, 3, 4, 5]\nodd_numbers = []\nfor num in numbers:\n    if num % 2 == 1:\n        odd_numbers.append(num)",
+        "expected_suggestion": "# Better idiomatic way\nnumbers = [1, 2, 3, 4, 5]\nodd_numbers = [num for num in numbers if num % 2 == 1]"
+      },
+      {
+        "code_sample": "def get_fibonacci_sequence(n):\n    sequence = [0, 1]\n    for i in range(2, n):\n        sequence.append(sequence[i-1] + sequence[i-2])\n    return sequence",
+        "expected_suggestion": "# Better idiomatic way\ndef get_fibonacci_sequence(n):\n    sequence = [0, 1]\n    while len(sequence) < n:\n        sequence.append(sequence[-1] + sequence[-2])\n    return sequence"
+      },
+      {
+        "code_sample": "def get_common_elements(list1, list2):\n    common = []\n    for item in list1:\n        if item in list2:\n            common.append(item)\n    return common",
+        "expected_suggestion": "# Better idiomatic way\ndef get_common_elements(list1, list2):\n    return list(set(list1) & set(list2))"
+      },
+      {
+        "code_sample": "my_list = [1, 2, 3, 4, 5]\nfor i in range(len(my_list)):\n    if my_list[i] > 3:\n        break",
+        "expected_suggestion": "# Better idiomatic way\nmy_list = [1, 2, 3, 4, 5]\nfor num in my_list:\n    if num > 3:\n        break"
+      },
+      {
+        "code_sample": "def is_leap_year(year):\n    if year % 4 == 0:\n        if year % 100 == 0:\n            if year % 400 == 0:\n                return True\n            else:\n                return False\n        else:\n            return True\n    else:\n        return False",
+        "expected_suggestion": "# Better idiomatic way\ndef is_leap_year(year):\n    return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)"
+      },
+      {
+        "code_sample": "def get_odd_numbers(numbers):\n    odd_numbers = []\n    for num in numbers:\n        if num % 2 == 1:\n            odd_numbers.append(num)\n    return odd_numbers",
+        "expected_suggestion": "# Better idiomatic way\ndef get_odd_numbers(numbers):\n    return [num for num in numbers if num % 2 == 1]"
+      },
+      {
+        "code_sample": "def get_average(numbers):\n    sum = 0\n    for num in numbers:\n        sum += num\n    average = sum / len(numbers)\n    return average",
+        "expected_suggestion": "# Better idiomatic way\ndef get_average(numbers):\n    return sum(numbers) / len(numbers)"
+      },
+      {
+        "code_sample": "def is_prime(num):\n    if num < 2:\n        return False\n    for i in range(2, num):\n        if num % i == 0:\n            return False\n    return True",
+        "expected_suggestion": "# Better idiomatic way\ndef is_prime(num):\n    return num > 1 and all(num % i != 0 for i in range(2, int(num**0.5)+1))"
+      },
+      {
+        "code_sample": "def get_square(num):\n    return num ** 2\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = []\nfor num in numbers:\n    squared_numbers.append(get_square(num))",
+        "expected_suggestion": "# Better idiomatic way\ndef get_square(num):\n    return num ** 2\n\nnumbers = [1, 2, 3, 4, 5]\nsquared_numbers = [get_square(num) for num in numbers]"
+      }
+    ]
+}

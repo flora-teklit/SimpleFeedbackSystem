@@ -1,0 +1,22 @@
+{
+  "name": "htmlparser",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "jsdom": "^22.0.0",
+    "node-fetch": "^3.3.1"
+  },
+  "devDependencies": {
+    "@gradio/client": "^0.1.2"
+  }
+}
