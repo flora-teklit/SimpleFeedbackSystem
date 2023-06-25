@@ -2,7 +2,7 @@ from typing import Optional
 import requests
 import json
 import openai
-openai.api_key = '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'
+openai.api_key = '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'
 class GPTResponse:
     def __init__(self, hasError: bool, message: str):
         self.hasError = hasError

@@ -14,7 +14,7 @@ class codeDavinci():
         self.url = "https://api.openai.com/v1/edits"
         self.headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer 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"
         }
 
     def ask(self, input: str):
