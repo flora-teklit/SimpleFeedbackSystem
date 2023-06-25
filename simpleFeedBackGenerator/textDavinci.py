@@ -2,7 +2,11 @@ from typing import Optional
 import requests
 import json
 import openai
-openai.api_key = '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'
+from creds import openai_key
+
+openai.api_key = openai_key
+
+
 class GPTResponse:
     def __init__(self, hasError: bool, message: str):
         self.hasError = hasError
@@ -14,7 +18,7 @@ class GPTOpenAI():
         self.url = "https://api.openai.com/v1/edits"
         self.headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer "+  openai_key
         }
 
     def ask(self, input: str):
@@ -49,7 +53,5 @@ class GPTOpenAI():
         if "error" in responseText:
             return GPTResponse(True, responseText["error"]["message"])
 
-        result= responseCode['choices'][0]['text'] + responseText['choices'][0]['text']
+        result = responseCode['choices'][0]['text'] + responseText['choices'][0]['text']
         return GPTResponse(False, result)
-
-

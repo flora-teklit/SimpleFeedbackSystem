@@ -1,7 +1,7 @@
 from typing import Optional
 import requests
 import json
-
+from creds import openai_key
 
 class GPTResponse:
     def __init__(self, hasError: bool, message: str):
@@ -14,7 +14,7 @@ class codeDavinci():
         self.url = "https://api.openai.com/v1/edits"
         self.headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer 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"
+            "Authorization": "Bearer "+openai_key
         }
 
     def ask(self, input: str):
